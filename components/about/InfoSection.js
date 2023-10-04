@@ -73,7 +73,7 @@ const InfoSection = ({
     scrollTarget == "" &&
       aboutScrollRef.current?.scrollIntoView({ behavior: "smooth" });
     !showAbout && setTimeout(resetScroll, 500);
-  }, [showAbout]);
+  }, [showAbout, scrollTarget]);
 
   // useEffect(() => {
   //   showAbout
@@ -103,7 +103,12 @@ const InfoSection = ({
       </div>
       <div className={styles.infoWrapper}>
         <div className={styles.infoImage}>
-          <Image fill src={about.image} style={{ objectFit: "contain" }} />
+          <Image
+            fill
+            src={about.image}
+            style={{ objectFit: "contain" }}
+            alt={"Studio view of the Knüppel & Scheffler Studio"}
+          />
         </div>
         <div className={styles.infoText}>
           <PortableText content={lang == "en" ? about.textEn : about.textDe} />
@@ -120,7 +125,7 @@ const InfoSection = ({
           <div className={styles.jobsWrapper} ref={jobsRef}>
             <p ref={jobsScrollRef}>Jobs:</p>
             {jobs.map((job, i) => (
-              <h1 onClick={() => handleClick(i)}>
+              <h1 onClick={() => handleClick(i)} key={i}>
                 {lang == "en" ? job.jobTitleEn : job.jobTitleDe}
               </h1>
             ))}

@@ -25,6 +25,11 @@ const SwiperInner = ({ entry }) => {
           style={{ objectFit: "cover" }}
           placeholder={"blur"}
           blurDataURL={entry.image.metadata.lqip}
+          alt={
+            entry.image.alt
+              ? entry.image.alt
+              : "An image on the Website of Knüppel & Scheffler"
+          }
         />
       </div>
     </>

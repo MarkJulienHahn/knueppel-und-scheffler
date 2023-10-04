@@ -7,8 +7,6 @@ const ProjectTile = ({ setProjIndex, i, setShowProject, project }) => {
     setProjIndex(i), setShowProject(true);
   };
 
-  console.log(project)
-
   return (
     <div className={styles.tile} onClick={handleClick}>
       <div className={styles.image}>
@@ -18,6 +16,11 @@ const ProjectTile = ({ setProjIndex, i, setShowProject, project }) => {
           style={{ objectFit: "cover" }}
           placeholder={"blur"}
           blurDataURL={project.image.metadata.lqip}
+          alt={
+            project.image.alt
+              ? project.image.alt
+              : "A preview image of a project by Knüppel & Scheffler"
+          }
         />
       </div>
       {project.name}

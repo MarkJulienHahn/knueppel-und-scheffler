@@ -38,15 +38,18 @@ const Header = ({ header }) => {
 
   useEffect(() => {
     !visible && setOpacity(0);
-  });
-
-  console.log(visible, opacity);
+  }, [visible]);
 
   return (
     <div className={styles.wrapper} ref={ref}>
       <div className={styles.logoWrapper}>
         <div className={styles.logo} style={{ opacity: opacity }}>
-          <Image fill src={logo} style={{ objectFit: "contain" }} />
+          <Image
+            fill
+            src={logo}
+            style={{ objectFit: "contain" }}
+            alt={"Knüppel & Scheffler Logo"}
+          />
         </div>
       </div>
 

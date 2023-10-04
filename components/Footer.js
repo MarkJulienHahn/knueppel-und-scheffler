@@ -47,6 +47,7 @@ const Footer = ({ lang, setLang, white, setShowImprint }) => {
           fill
           src={white ? logoNeg : logo}
           style={{ objectFit: "contain" }}
+          alt={"Knüppel und Scheffler Logo"}
         />
       </div>
       <div

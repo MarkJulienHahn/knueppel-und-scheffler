@@ -1,8 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 
-
-
 import PortableText from "react-portable-text";
 import Image from "next/image";
 
@@ -109,13 +107,14 @@ const Project = ({
         )}
         <div ref={topRef}></div>
         {project.images.map((image, i) => (
-          <div className={styles.image}>
+          <div className={styles.image} key={i}>
             <Image
               fill
               src={image.url}
               placeholder={"blur"}
               blurDataURL={image.metadata.lqip}
               style={{ objectFit: "cover" }}
+              alt={image.alt ? image.alt : "An image by Knüppel & Scheffler"}
             />
           </div>
         ))}
