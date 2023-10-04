@@ -31,7 +31,19 @@
   transform: scale(1.1);
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1400px) {
+  .tile {
+    width: 50%;
+    /* margin-bottom: calc(2 * var(--space-S)); */
+  }
+  .image {
+    width: 35vw;
+    height: 25vw;
+    /* height: 20vw; */
+  }
+}
+
+@media screen and (max-width: 850px) {
   .wrapper {
     display: block;
     padding: var(--space-S);

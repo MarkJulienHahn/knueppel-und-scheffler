@@ -48,7 +48,7 @@
   opacity: 1;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 850px) {
   .wrapper {
     height: 80vh;
   }
