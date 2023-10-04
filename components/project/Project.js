@@ -40,6 +40,13 @@ const Project = ({
   useEffect(() => {
     setProject(projects[projIndex]);
     !showProject && setTimeout(scrollUp, 500) && setCredits(false);
+    showProject &&
+      history.replaceState(
+        null,
+        `/${projects[projIndex].slug}`,
+        `/${projects[projIndex].slug}`
+      );
+    !showProject && history.replaceState(null, "/", "/");
   }, [showProject]);
 
   return (

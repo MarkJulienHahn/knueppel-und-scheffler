@@ -4,11 +4,19 @@ import { useState, useEffect } from "react";
 
 import Header from "./index/Header";
 import Imprint from "./imprint/Imprint";
-import Project from "./project/Project";
 import About from "./about/About";
+import Project from "./project/Project";
 import Body from "./index/Body";
 
-const Main = ({ header, projects, about, clients, jobs, imprint }) => {
+const Main = ({
+  header,
+  projects,
+  about,
+  clients,
+  jobs,
+  imprint,
+  aboutPage,
+}) => {
   const [lang, setLang] = useState("en");
 
   const [showAbout, setShowAbout] = useState(false);
@@ -23,6 +31,7 @@ const Main = ({ header, projects, about, clients, jobs, imprint }) => {
     if (data) {
       setLang(JSON.parse(data));
     }
+    aboutPage && setShowAbout(true);
   }, []);
 
   useEffect(() => {
@@ -45,16 +54,18 @@ const Main = ({ header, projects, about, clients, jobs, imprint }) => {
         projIndex={projIndex}
         projects={projects}
       />
-        <About
-          lang={lang}
-          setLang={setLang}
-          scrollTarget={scrollTarget}
-          about={about}
-          clients={clients}
-          jobs={jobs}
-          setShowAbout={setShowAbout}
-          showAbout={showAbout}
-        />
+
+      <About
+        lang={lang}
+        setLang={setLang}
+        scrollTarget={scrollTarget}
+        about={about}
+        clients={clients}
+        jobs={jobs}
+        setShowAbout={setShowAbout}
+        showAbout={showAbout}
+      />
+
       <div>
         <Header header={header} />
 

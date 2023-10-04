@@ -14,7 +14,7 @@ const About = ({
   jobs,
   setShowAbout,
   showAbout,
-  scrollTarget
+  scrollTarget,
 }) => {
   const [title, setTitle] = useState("About");
 
@@ -27,7 +27,7 @@ const About = ({
       <div className={styles.inner}>
         {showAbout && (
           <div className={styles.headlineWrapper}>
-          <Headline title={title} close={() => setShowAbout(false)} />
+            <Headline title={title} close={() => setShowAbout(false)} />
           </div>
         )}
         <InfoSection

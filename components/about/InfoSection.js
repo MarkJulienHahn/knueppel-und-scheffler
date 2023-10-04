@@ -1,6 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
-import { useRouter } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 import Image from "next/image";
 import PortableText from "react-portable-text";
@@ -22,6 +22,7 @@ const InfoSection = ({
   const [jobIndex, setJobIndex] = useState(0);
 
   const router = useRouter();
+  const pathname = usePathname();
 
   const { ref: aboutRef, inView: aboutVisible } = useInView({
     threshold: 0,
@@ -42,7 +43,12 @@ const InfoSection = ({
   };
 
   const routerAboutAction = () => {
-    router.push(`/?about`, undefined, { shallow: true });
+    // router.push(`${pathname}/?about`, undefined, { shallow: true });
+    history.replaceState(null, "/about", "/about");
+  };
+
+  const routerBackAction = () => {
+    history.replaceState(null, "/", "/");
   };
 
   const resetScroll = () => {
@@ -75,11 +81,10 @@ const InfoSection = ({
     !showAbout && setTimeout(resetScroll, 500);
   }, [showAbout, scrollTarget]);
 
-  // useEffect(() => {
-  //   showAbout
-  //     ? setTimeout(routerAboutAction, 1000)
-  //     : router.push(`/`, "/about", { shallow: true });
-  // }, [showAbout]);
+  useEffect(() => {
+    showAbout && routerAboutAction();
+    !showAbout && routerBackAction();
+  }, [showAbout]);
 
   return (
     <>

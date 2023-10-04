@@ -1,9 +1,15 @@
+import { useEffect } from "react";
+
 import styles from "../../styles/Imprint.module.css";
 import PortableText from "react-portable-text";
 
 import Headline from "../about/Headline";
 
 const Imprint = ({ imprint, showImprint, setShowImprint, lang }) => {
+  useEffect(() => {
+    showImprint && history.replaceState(null, `/imprint`, `/imprint`);
+    !showImprint && history.replaceState(null, "/", "/");
+  }, [showImprint]);
 
   return (
     <div
