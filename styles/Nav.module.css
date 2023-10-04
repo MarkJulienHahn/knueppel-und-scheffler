@@ -2,6 +2,7 @@
   padding: var(--space-S) 0 var(--space-S) var(--space-S);
   position: -webkit-sticky;
   position: sticky;
+  display: block;
   top: 0;
   color: white;
   mix-blend-mode: difference;
@@ -11,8 +12,7 @@
 }
 
 .wrapper h1 {
-    cursor: pointer;
-    
+  cursor: pointer;
 }
 
 .wrapper h1:hover {

@@ -1,24 +1,32 @@
-
 .wrapper {
-    position: fixed;
-    background: var(--white);
-    width: 100%;
-    transition: top 0.5s ease;
-    z-index: 150;
-    height: 100vh;
-    overflow: scroll;
-    overscroll-behavior: contain;
-  }
+  position: fixed;
 
-  .active {
-    top: 0;
-  }
-  
-  .inActive {
-    top: 100vh;
-  }
+  width: 100vw;
+  transition: top 0.5s ease;
+  z-index: 150;
+  height: 100vh;
+  overflow: scroll;
+  overscroll-behavior: contain;
+}
 
-  .textWrapper {
-    padding: var(--space-S);
-    width: 50%
-  }
+.inner {
+  background: var(--white);
+}
+
+.active {
+  top: 0;
+}
+
+.inActive {
+  top: 100vh;
+}
+
+.textWrapper {
+  width: 100vw;
+  padding: var(--space-S);
+  width: 50%;
+}
+
+.textWrapper p {
+  padding-bottom: 20px;
+}
