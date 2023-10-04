@@ -1,0 +1,24 @@
+
+.wrapper {
+    position: fixed;
+    background: var(--white);
+    width: 100%;
+    transition: top 0.5s ease;
+    z-index: 150;
+    height: 100vh;
+    overflow: scroll;
+    overscroll-behavior: contain;
+  }
+
+  .active {
+    top: 0;
+  }
+  
+  .inActive {
+    top: 100vh;
+  }
+
+  .textWrapper {
+    padding: var(--space-S);
+    width: 50%
+  }

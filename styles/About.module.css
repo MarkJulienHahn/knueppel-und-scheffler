@@ -1,0 +1,95 @@
+.wrapper {
+  position: fixed;
+  background: var(--white);
+  width: 100%;
+  transition: top 0.5s ease;
+  z-index: 150;
+  height: 100vh;
+  overflow: scroll;
+  overscroll-behavior: contain;
+}
+
+.inner {
+  position: relative;
+}
+
+.active {
+  top: 0;
+}
+
+.inActive {
+  top: 100vh;
+}
+
+.headline {
+  position: fixed;
+  top: 0;
+  padding: var(--space-S);
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  animation: fadeIn 0.5s ease;
+  animation-delay: 0.5s;
+  animation-fill-mode: forwards;
+  opacity: 0;
+  z-index: 200;
+  pointer-events: none;
+  color: white;
+  mix-blend-mode: difference;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.infoWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 300px var(--space-M);
+  position: relative;
+}
+
+.infoImage {
+  width: 40vw;
+  height: 30vw;
+  margin-right: var(--space-S);
+  position: sticky;
+  top: 200px;
+}
+
+.infoText {
+  width: 40vw;
+  font-size: var(--font-size-M);
+  line-height: var(--line-height-M);
+}
+
+.clientsWrapper {
+  margin: 200px 0 0 calc(50% + 10px);
+}
+
+.clientsWrapper h1 {
+  text-transform: uppercase;
+}
+
+.clientsWrapper p,
+.jobsWrapper p {
+  padding-bottom: 20px;
+  scroll-margin: 80px
+}
+
+.jobsWrapper {
+  margin: 100px 0 0 calc(50% + 10px);
+}
+
+.jobsWrapper h1 {
+  cursor: pointer;
+}
+
+.jobsWrapper h1:hover {
+  font-family: "ItalianGaramondItalic";
+}

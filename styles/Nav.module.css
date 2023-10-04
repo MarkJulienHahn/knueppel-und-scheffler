@@ -1,0 +1,20 @@
+.wrapper {
+  padding: var(--space-S) 0 var(--space-S) var(--space-S);
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  color: white;
+  mix-blend-mode: difference;
+  font-family: "ItalianGaramond";
+  z-index: 100;
+  width: 250px;
+}
+
+.wrapper h1 {
+    cursor: pointer;
+    
+}
+
+.wrapper h1:hover {
+  font-family: "ItalianGaramondItalic";
+}
