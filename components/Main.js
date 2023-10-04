@@ -31,12 +31,12 @@ const Main = ({ header, projects, about, clients, jobs, imprint }) => {
 
   return (
     <>
-      {/* <Imprint
+      <Imprint
         lang={lang}
         showImprint={showImprint}
         setShowImprint={setShowImprint}
         imprint={imprint[0]}
-      /> */}
+      />
       <Project
         lang={lang}
         setLang={setLang}
