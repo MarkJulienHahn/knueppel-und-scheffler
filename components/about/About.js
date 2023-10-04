@@ -26,7 +26,9 @@ const About = ({
     >
       <div className={styles.inner}>
         {showAbout && (
+          <div className={styles.headlineWrapper}>
           <Headline title={title} close={() => setShowAbout(false)} />
+          </div>
         )}
         <InfoSection
           lang={lang}

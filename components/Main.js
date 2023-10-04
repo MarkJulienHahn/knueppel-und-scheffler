@@ -31,12 +31,12 @@ const Main = ({ header, projects, about, clients, jobs, imprint }) => {
 
   return (
     <>
-      <Imprint
+      {/* <Imprint
         lang={lang}
         showImprint={showImprint}
         setShowImprint={setShowImprint}
         imprint={imprint[0]}
-      />
+      /> */}
       <Project
         lang={lang}
         setLang={setLang}
@@ -45,16 +45,16 @@ const Main = ({ header, projects, about, clients, jobs, imprint }) => {
         projIndex={projIndex}
         projects={projects}
       />
-      <About
-        lang={lang}
-        setLang={setLang}
-        scrollTarget={scrollTarget}
-        about={about}
-        clients={clients}
-        jobs={jobs}
-        setShowAbout={setShowAbout}
-        showAbout={showAbout}
-      />
+        <About
+          lang={lang}
+          setLang={setLang}
+          scrollTarget={scrollTarget}
+          about={about}
+          clients={clients}
+          jobs={jobs}
+          setShowAbout={setShowAbout}
+          showAbout={showAbout}
+        />
       <div>
         <Header header={header} />
 

@@ -8,7 +8,7 @@ const Job = ({ lang, jobs, jobIndex, showJobs, setShowJobs }) => {
     <>
       {showJobs && <Headline close={() => setShowJobs(false)} />}
       <div className={styles.wrapper}>
-        <p>OpenPositions</p>
+        <p>Open Positions</p>
         <h1>{lang == "en" ? job.jobTitleEn : job.jobTitleDe}</h1>
         <div className={styles.text}>
           <PortableText content={lang == "en" ? job.textEn : job.textDe} />

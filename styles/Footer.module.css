@@ -22,7 +22,7 @@
   display: flex;
   justify-content: space-between;
   padding: 0 var(--space-M);
-  cursor: default
+  cursor: default;
 }
 
 .row a:hover {
@@ -46,4 +46,41 @@
 
 .item:hover span {
   opacity: 1;
+}
+
+@media screen and (max-width: 600px) {
+  .wrapper {
+    height: 80vh;
+  }
+  .logo {
+    width: 100vw;
+    padding: 0 20px;
+  }
+  .logo img {
+    position: relative !important;
+  }
+  .row {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    padding: var(--space-S);
+  }
+  .row p {
+    line-height: 20px;
+  }
+  .item,
+  .row a {
+    height: 22px;
+  }
+  .item span {
+    display: none;
+  }
+  .row a:hover {
+    opacity: 1;
+  }
+  .instagram {
+    padding-top: 30px;
+    height: 53px;
+  }
 }

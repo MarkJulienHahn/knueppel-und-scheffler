@@ -25,7 +25,7 @@ const Project = ({
   const topRef = useRef();
 
   const { ref, inView } = useInView({
-    threshold: 1,
+    threshold: 0.8,
   });
 
   const scrollUp = () => {

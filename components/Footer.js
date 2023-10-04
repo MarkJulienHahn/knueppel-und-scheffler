@@ -67,7 +67,7 @@ const Footer = ({ lang, setLang, white, setShowImprint }) => {
           </span>
         </div>
 
-        <div className={styles.item} ref={ref2}>
+        <div className={`${styles.item} ${styles.instagram}`} ref={ref2}>
           <a
             href={"https://www.instagram.com/knueppelscheffler_/"}
             target="blank"

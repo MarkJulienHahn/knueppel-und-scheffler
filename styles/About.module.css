@@ -93,3 +93,38 @@
 .jobsWrapper h1:hover {
   font-family: "ItalianGaramondItalic";
 }
+
+@media screen and (max-width: 600px) {
+  .infoWrapper {
+    display: block;
+    padding: 70px var(--space-S);
+  }
+  .infoImage {
+    width: 100%;
+    height: 66vw;
+    position: relative;
+    top: unset;
+  }
+  .infoImage img {
+    object-fit: cover !important;
+  }
+  .infoText {
+    width: 100%;
+    padding-top: 40px;
+    font-size: 22px;
+    line-height: 25px;
+  }
+  .clientsWrapper,
+  .jobsWrapper {
+    margin: 40px 0 0 0;
+  }
+  .headlineWrapper {
+    background: white;
+    color: black;
+  }
+  .headlineWrapper .headline {
+    mix-blend-mode: normal;
+    color: black;
+    background: var(--white);
+  }
+}

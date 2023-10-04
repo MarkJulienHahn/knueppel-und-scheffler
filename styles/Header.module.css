@@ -57,3 +57,13 @@
     opacity: 1;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .wrapper, .imgWrapper {
+    height: 90vh;
+  }
+
+  .logo {
+    padding: 0 40px;
+  }
+}

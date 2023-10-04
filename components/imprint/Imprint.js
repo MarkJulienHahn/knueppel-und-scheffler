@@ -3,8 +3,8 @@ import PortableText from "react-portable-text";
 
 import Headline from "../about/Headline";
 
-const Imprint = ({ imprint, showImprint, setShowImprint, lang, setLang }) => {
-  console.log(imprint);
+const Imprint = ({ imprint, showImprint, setShowImprint, lang }) => {
+
   return (
     <div
       className={`${styles.wrapper} ${
