@@ -66,6 +66,8 @@
   width: 40vw;
   font-size: var(--font-size-M);
   line-height: var(--line-height-M);
+  left: calc(50vw - 10px);
+  position: absolute;
 }
 
 .clientsWrapper {
@@ -77,7 +79,8 @@
 }
 
 .clientsWrapper p,
-.jobsWrapper p {
+.jobsWrapper p,
+.contactWrapper p {
   padding-bottom: 20px;
   scroll-margin: 80px;
 }
@@ -92,6 +95,51 @@
 
 .jobsWrapper h1:hover {
   font-family: "ItalianGaramondItalic";
+}
+
+.contactWrapper {
+  margin: 100px 0 0 calc(50% + 10px);
+}
+
+.closeContainer{
+  position: relative;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  margin-top: var(--space-S);
+  cursor: pointer;
+}
+
+.leftright{
+  height: 4px;
+  width: 50px;
+  position: absolute;
+  background-color: white;
+  border-radius: 2px;
+  transform: rotate(45deg);
+  transition: all .3s ease-out;
+}
+
+.rightleft{
+  height: 4px;
+  width: 50px;
+  position: absolute;
+  background-color: white;
+  border-radius: 2px;
+  transform: rotate(-45deg);
+  transition: all .3s ease-out;
+}
+
+.closeContainer:hover .leftright{
+  transform: rotate(135deg);
+  background-color: white;
+}
+.closeContainer:hover .rightleft{
+  transform: rotate(45deg);
+  background-color: white;
+}
+.closeContainer:hover label{
+  opacity: 1;
 }
 
 @media screen and (max-width: 600px) {
@@ -113,10 +161,13 @@
     padding-top: 40px;
     font-size: 22px;
     line-height: 25px;
+    position: relative;
+    left: 0;
   }
   .clientsWrapper,
-  .jobsWrapper {
-    margin: 40px 0 0 0;
+  .jobsWrapper, 
+  .contactWrapper {
+    margin: 100px 0 0 0;
   }
   .headlineWrapper {
     background: white;
@@ -125,6 +176,9 @@
   .headlineWrapper .headline {
     mix-blend-mode: normal;
     color: black;
-    background: var(--white);
+    background: linear-gradient(0deg, transparent, var(--white) 20% 100%);
+  }
+  .captions {
+    display: none
   }
 }

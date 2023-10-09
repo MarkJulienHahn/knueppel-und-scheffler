@@ -22,6 +22,7 @@ const Main = ({
   const [showAbout, setShowAbout] = useState(false);
   const [showImprint, setShowImprint] = useState(false);
   const [showProject, setShowProject] = useState(false);
+  const [showNav, setShowNav] = useState(true);
 
   const [projIndex, setProjIndex] = useState(0);
   const [scrollTarget, setScrollTarget] = useState("");
@@ -53,6 +54,8 @@ const Main = ({
         showProject={showProject}
         projIndex={projIndex}
         projects={projects}
+        setShowNav={setShowNav}
+        showNav={showNav}
       />
 
       <About
@@ -64,6 +67,8 @@ const Main = ({
         jobs={jobs}
         setShowAbout={setShowAbout}
         showAbout={showAbout}
+        setShowNav={setShowNav}
+        showNav={showNav}
       />
 
       <div>
@@ -79,6 +84,8 @@ const Main = ({
           setShowAbout={setShowAbout}
           setShowImprint={setShowImprint}
           projects={projects}
+          setShowNav={setShowNav}
+          showNav={showNav}
         />
       </div>
     </>

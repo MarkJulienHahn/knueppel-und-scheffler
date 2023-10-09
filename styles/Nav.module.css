@@ -1,5 +1,5 @@
 .wrapper {
-  padding: var(--space-S) 0 var(--space-S) var(--space-S);
+  padding: 40px 0 var(--space-S) 40px;
   position: -webkit-sticky;
   position: sticky;
   display: block;
@@ -9,6 +9,7 @@
   font-family: "ItalianGaramond";
   z-index: 100;
   width: 250px;
+  transition: opacity 0.2s ease
 }
 
 .wrapper h1 {

@@ -2,7 +2,7 @@ import styles from "../../styles/Projects.module.css";
 
 import Image from "next/image";
 
-const ProjectTile = ({ setProjIndex, i, setShowProject, project }) => {
+const ProjectTile = ({ setProjIndex, i, setShowProject, project, setShowNav }) => {
   const handleClick = () => {
     setProjIndex(i), setShowProject(true);
   };

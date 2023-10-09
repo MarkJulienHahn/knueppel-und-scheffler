@@ -1,40 +1,50 @@
 .wrapper {
-  height: 70vh;
-  padding: var(--space-S) 0;
+  height: 100vh;
+  padding: 50px 0;
   display: flex;
   flex-direction: column;
   align-items: center;
   z-index: 50;
   position: relative;
+  font-family: "ItalicanGaramondMedium";
+  /* text-align: center */
+  pointer-events: none;
 }
 
 .logo {
-  width: 800px;
+  width: 80vw;
   height: 100px;
   position: absolute;
-  bottom: 300px;
+  bottom: calc(50vh - 40px);
+  transition: opacity 0.5s ease;
+  pointer-events: none;
 }
 
 .row {
   position: absolute;
-  bottom: var(--space-S);
-  width: 100%;
+  bottom: 40px;
+  /* width: 100%; */
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   padding: 0 var(--space-M);
   cursor: default;
+  pointer-events: auto
 }
 
-.row a:hover {
+/* .row a:hover {
   opacity: 0;
   font-family: "ItalianGaramond";
+} */
+
+.item {
+  padding: 0 10px;
+
 }
 
-.item a {
+/* .item a {
   cursor: pointer;
-  /* background:red; */
   padding: 5px 4px;
-}
+} */
 
 .item span {
   opacity: 0;
@@ -44,9 +54,9 @@
   /* background: blue; */
 }
 
-.item:hover span {
+/* .item:hover span {
   opacity: 1;
-}
+} */
 
 @media screen and (max-width: 850px) {
   .wrapper {

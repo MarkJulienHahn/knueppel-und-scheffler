@@ -15,6 +15,8 @@ const About = ({
   setShowAbout,
   showAbout,
   scrollTarget,
+  setShowNav,
+  showNav
 }) => {
   const [title, setTitle] = useState("About");
 
@@ -39,7 +41,7 @@ const About = ({
           scrollTarget={scrollTarget}
           showAbout={showAbout}
         />
-        <Footer lang={lang} setLang={setLang} />
+        <Footer lang={lang} setLang={setLang} showNav={showNav} setShowNav={setShowNav} />
       </div>
     </div>
   );

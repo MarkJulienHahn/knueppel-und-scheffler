@@ -1,5 +1,6 @@
 import { useState, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
+import { useRouter } from "next/navigation";
 
 import PortableText from "react-portable-text";
 import Image from "next/image";
@@ -16,10 +17,14 @@ const Project = ({
   projects,
   showProject,
   setShowProject,
+  setShowNav,
+  showNav
 }) => {
   const [credits, setCredits] = useState(false);
   const [height, setHeight] = useState();
   const [project, setProject] = useState(projects[projIndex]);
+
+  const router = useRouter();
 
   const ref2 = useRef();
   const topRef = useRef();
@@ -42,10 +47,13 @@ const Project = ({
     !showProject && setTimeout(scrollUp, 500) && setCredits(false);
     showProject &&
       history.replaceState(
-        null,
+        { query: projIndex, slug: projects[projIndex].slug },
         `/${projects[projIndex].slug}`,
-        `/${projects[projIndex].slug}`
+        `${projects[projIndex].slug}`
       );
+
+    // showProject && router.push(`/${projects[projIndex].slug}`, undefined, { shallow: true});
+
     !showProject && history.replaceState(null, "/", "/");
   }, [showProject]);
 
@@ -130,7 +138,13 @@ const Project = ({
           style={inView ? { opacity: "1" } : { opacity: "0" }}
           ref={ref}
         >
-          <Footer white={true} lang={lang} setLang={setLang} />
+          <Footer
+            white={true}
+            lang={lang}
+            setLang={setLang}
+            setShowNav={setShowNav}
+            showNav={showNav}
+          />
         </div>
       </div>
     </div>

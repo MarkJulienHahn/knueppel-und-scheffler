@@ -33,10 +33,14 @@ const InfoSection = ({
   const { ref: jobsRef, inView: jobsVisible } = useInView({
     threshold: 0.8,
   });
+  const { ref: contactRef, inView: contactVisible } = useInView({
+    threshold: 0.8,
+  });
 
   const clientScrollRef = useRef();
   const jobsScrollRef = useRef();
   const aboutScrollRef = useRef();
+  const contactScrollRef = useRef();
 
   const handleClick = (i) => {
     setJobIndex(i), setShowJobs(true);
@@ -69,6 +73,7 @@ const InfoSection = ({
     aboutVisible && setTitle("About");
     clientsVisible && setTitle("Clients");
     jobsVisible && setTitle("Jobs");
+    contactVisible && setTitle("Contact");
   });
 
   useEffect(() => {
@@ -76,6 +81,8 @@ const InfoSection = ({
       clientScrollRef.current?.scrollIntoView({ behavior: "smooth" });
     scrollTarget == "jobs" &&
       jobsScrollRef.current?.scrollIntoView({ behavior: "smooth" });
+    scrollTarget == "contact" &&
+      contactScrollRef.current?.scrollIntoView({ behavior: "smooth" });
     scrollTarget == "" &&
       aboutScrollRef.current?.scrollIntoView({ behavior: "smooth" });
     !showAbout && setTimeout(resetScroll, 500);
@@ -120,7 +127,9 @@ const InfoSection = ({
         </div>
 
         <div className={styles.clientsWrapper} ref={clientsRef}>
-          <p ref={clientScrollRef}>{lang == "en" ? "Clients:" : "Kunden:"}</p>
+          <p className={styles.captions} ref={clientScrollRef}>
+            {lang == "en" ? "Clients" : "Kunden"}
+          </p>
           {clients.map((client, i) => (
             <h1 key={i}>{client.client}</h1>
           ))}
@@ -128,7 +137,9 @@ const InfoSection = ({
 
         {jobs.length ? (
           <div className={styles.jobsWrapper} ref={jobsRef}>
-            <p ref={jobsScrollRef}>Jobs:</p>
+            <p className={styles.captions} ref={jobsScrollRef}>
+              Jobs
+            </p>
             {jobs.map((job, i) => (
               <h1 onClick={() => handleClick(i)} key={i}>
                 {lang == "en" ? job.jobTitleEn : job.jobTitleDe}
@@ -138,6 +149,41 @@ const InfoSection = ({
         ) : (
           ""
         )}
+
+        <div className={styles.contactWrapper} ref={contactRef}>
+          <p className={styles.captions} ref={contactScrollRef}>
+            {lang == "en" ? "Contact" : "Kontakt"}
+          </p>
+          <h1>
+            Dorotheenstraße 14
+            <br />
+            10117 Berlin
+            <br />
+            <br />
+            (+49) 30 308 77 44 – 200
+            <br />
+            <a href="mailto:office@knueppel-scheffler.com">
+              office@knueppel-scheffler.com
+            </a>
+            <br />
+            <br />
+            <a
+              href={"https://www.instagram.com/knueppelscheffler_/"}
+              target="blank"
+              rel="_noreferrer"
+            >
+              Instagram
+            </a>
+            <br />
+            <a
+              href={"https://www.linkedin.com/in/eike-knueppel-a9263979/"}
+              target="blank"
+              rel="_noreferrer"
+            >
+              LinkedIn
+            </a>
+          </h1>
+        </div>
       </div>
     </>
   );

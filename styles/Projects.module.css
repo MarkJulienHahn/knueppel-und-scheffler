@@ -24,11 +24,13 @@
 }
 
 .image img {
-  transition: transform 0.2s ease;
+  transition: all 0.5s ease;
+  background: black;
 }
 
 .tile:hover .image img {
   transform: scale(1.1);
+  filter: brightness(60%);
 }
 
 @media screen and (max-width: 1400px) {

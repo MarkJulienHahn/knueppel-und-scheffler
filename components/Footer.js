@@ -1,5 +1,6 @@
 import { useState, useRef, useEffect } from "react";
 import useWindowDimensions from "../hooks/useWindowDimensions";
+import { useInView } from "react-intersection-observer";
 
 import Image from "next/image";
 import Link from "next/link";
@@ -9,7 +10,25 @@ import styles from "../styles/Footer.module.css";
 import logo from "../public/images/ks_logo.png";
 import logoNeg from "../public/images/ks_logo_neg.png";
 
-const Footer = ({ lang, setLang, white, setShowImprint }) => {
+const visible = {
+  opacity: "1",
+  pointerEvents: "auto",
+};
+
+const invisible = {
+  opacity: "0",
+  pointerEvents: "none",
+};
+
+const Footer = ({
+  lang,
+  setLang,
+  white,
+  setShowImprint,
+  showNav,
+  setShowNav,
+  showProject
+}) => {
   const [offsets, setOffsets] = useState({});
 
   const { windowWidth } = useWindowDimensions();
@@ -19,6 +38,10 @@ const Footer = ({ lang, setLang, white, setShowImprint }) => {
   const ref3 = useRef();
   const ref4 = useRef();
   const ref5 = useRef();
+
+  const { ref: bottomRef, inView: visible } = useInView({
+    threshold: 0.9,
+  });
 
   useEffect(() => {
     setOffsets([
@@ -40,9 +63,14 @@ const Footer = ({ lang, setLang, white, setShowImprint }) => {
     ]);
   }, [windowWidth]);
 
+  useEffect(() => {
+    visible ? setShowNav(false) : setShowNav(true);
+  }, [visible]);
+
+
   return (
-    <div className={styles.wrapper}>
-      <div className={styles.logo}>
+    <div className={styles.wrapper} ref={bottomRef}>
+      <div className={styles.logo} style={!showNav ? visible : invisible}>
         <Image
           fill
           src={white ? logoNeg : logo}
@@ -50,41 +78,100 @@ const Footer = ({ lang, setLang, white, setShowImprint }) => {
           alt={"Knüppel und Scheffler Logo"}
         />
       </div>
+
       <div
         className={styles.row}
         style={{ color: white ? "var(--white)" : "var(--black)" }}
       >
-        <p>Dorotheenstr. 14, 10117 Berlin</p>
-
-        <p>T: (+49) 30 308 77 44 – 200</p>
-
         <div className={styles.item} ref={ref}>
-          <a href={"mailto:office@knueppel-scheffler.com"}>
-            office@knueppel-scheffler.com
+          <a onClick={() => setShowImprint(true)}>
+            {lang == "en" ? "Imprint" : "Impressum"}
           </a>
-          <span style={{ left: offsets[0] }}>
-            office@knueppel-scheffler.com
-          </span>
         </div>
 
-        <div className={`${styles.item} ${styles.instagram}`} ref={ref2}>
-          <a
-            href={"https://www.instagram.com/knueppelscheffler_/"}
-            target="blank"
-            rel="_noreferrer"
-          >
-            Instagram
+        <div className={styles.item} ref={ref2}>
+          <a onClick={() => setShowImprint(true)}>
+            {lang == "en" ? "Privacy" : "Datenschutz"}
           </a>
-          <span style={{ left: offsets[1] }}>Instagram</span>
+          {/* <span style={{ left: offsets[2] }}>
+            {lang == "en" ? "Privacy" : "Datenschutz"}
+          </span> */}
         </div>
 
         <div className={styles.item} ref={ref3}>
+          <a onClick={lang == "en" ? () => setLang("de") : () => setLang("en")}>
+            {lang == "en" ? "Deutsch" : "English"}
+          </a>
+          {/* <span style={{ left: offsets[3] }}>
+            {lang == "en" ? "Deutsch" : "English"}
+          </span> */}
+        </div>
+      </div>
+
+      {/* <div
+        className={styles.row}
+        style={{ color: white ? "var(--white)" : "var(--black)" }}
+      >
+        <p>
+          Dorotheenstraße 14
+          <br /> 10117 Berlin
+        </p>
+
+        <span>
+          <p>(+49) 30 308 77 44 – 200</p>
+          <span>
+            {" "}
+            <a href={"mailto:office@knueppel-scheffler.com"}>
+              office@knueppel-scheffler.com
+            </a>
+            {/* <span style={{ left: offsets[0] }}>
+              office@knueppel-scheffler.com
+            </span> 
+          </span>
+        </span>
+
+        {/* <div className={styles.item} ref={ref}></div> 
+
+        <div className={`${styles.item} ${styles.instagram}`} ref={ref2}>
+          <div>
+            <a
+              href={"https://www.instagram.com/knueppelscheffler_/"}
+              target="blank"
+              rel="_noreferrer"
+            >
+              Instagram
+            </a>
+            <span style={{ left: offsets[1] }}>Instagram</span>
+          </div>{" "}
+          <div>
+            <a
+              href={"https://www.instagram.com/knueppelscheffler_/"}
+              target="blank"
+              rel="_noreferrer"
+            >
+              LinkedIn
+            </a>
+            <span style={{ left: offsets[1] }}>Instagram</span>
+          </div>
+        </div>
+
+        <div className={styles.item} ref={ref3}>
+          <div>
           <a onClick={() => setShowImprint(true)}>
             {lang == "en" ? "Imprint" : "Impressum"}
           </a>
           <span style={{ left: offsets[2] }}>
             {lang == "en" ? "Imprint" : "Impressum"}
           </span>
+          </div>
+          <div>
+          <a onClick={() => setShowImprint(true)}>
+            {lang == "en" ? "Privacy" : "Impressum"}
+          </a>
+          <span style={{ left: offsets[2] }}>
+            {lang == "en" ? "Imprint" : "Impressum"}
+          </span>
+          </div>
         </div>
 
         {/* <div className={styles.item} ref={ref4}>
@@ -94,7 +181,7 @@ const Footer = ({ lang, setLang, white, setShowImprint }) => {
           <span style={{ left: offsets[3] }}>
             {lang == "en" ? "Privacy" : "Datenschutz"}
           </span>
-        </div> */}
+        </div> 
 
         <div className={styles.item} ref={ref5}>
           <a onClick={lang == "en" ? () => setLang("de") : () => setLang("en")}>
@@ -104,7 +191,7 @@ const Footer = ({ lang, setLang, white, setShowImprint }) => {
             {lang == "en" ? "Deutsch" : "English"}
           </span>
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };

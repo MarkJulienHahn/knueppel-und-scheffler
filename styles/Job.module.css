@@ -5,12 +5,24 @@
   align-items: center;
 }
 
+
 .text {
+  width: 50vw;
   padding: var(--space-S);
-  column-count: 2;
+  /* column-count: 2; */
   column-gap: 40px;
-  font-size: var(--font-size-M);
-  line-height: var(--line-height-M);
+  /* font-size: var(--font-size-M);
+  line-height: var(--line-height-M); */
+}
+
+.text h1, .text h2, .text h3 {
+  font-size: 18px;
+  line-height: 24px;
+  letter-spacing: 2%;
+  text-align: center;
+  text-transform: uppercase;
+  padding-bottom: 10px;
+  padding-top: 30px;
 }
 
 .link {

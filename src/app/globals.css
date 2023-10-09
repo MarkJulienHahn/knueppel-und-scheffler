@@ -2,7 +2,7 @@
   --white: #f8f8f8;
   --black: #363636;
 
-  --space-S: 70px;
+  --space-S: 40px;
   --space-M: 120px;
 
   --font-size-M: 28px;
@@ -16,12 +16,14 @@
   box-sizing: border-box;
   padding: 0;
   margin: 0;
+  /* -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; */
 }
 
 @font-face {
   font-family: "ItalianGaramond";
   font-style: normal;
-  src: url(../../public/fonts/ItalianGaramondRegular.ttf) format("truetype");
+  src: url(../../public/fonts/EBGaramond-Regular.ttf) format("truetype");
   /* url(../public/fonts/ProtestGrotesk.woff) format("woff"),
     url(../public/fonts/ProtestGrotesk.woff2) format("woff2"); */
 }
@@ -29,7 +31,23 @@
 @font-face {
   font-family: "ItalianGaramondItalic";
   font-style: normal;
-  src: url(../../public/fonts/ItalianGaramondItalic.ttf) format("truetype");
+  src: url(../../public/fonts/EBGaramond-Italic.ttf) format("truetype");
+  /* url(../public/fonts/ProtestGrotesk.woff) format("woff"),
+    url(../public/fonts/ProtestGrotesk.woff2) format("woff2"); */
+}
+
+@font-face {
+  font-family: "ItalianGaramondMedium";
+  font-style: normal;
+  src: url(../../public/fonts/EBGaramond-Medium.ttf) format("truetype");
+  /* url(../public/fonts/ProtestGrotesk.woff) format("woff"),
+    url(../public/fonts/ProtestGrotesk.woff2) format("woff2"); */
+}
+
+@font-face {
+  font-family: "ItalianGaramondMediumItalic";
+  font-style: normal;
+  src: url(../../public/fonts/EBGaramond-MediumItalic.ttf) format("truetype");
   /* url(../public/fonts/ProtestGrotesk.woff) format("woff"),
     url(../public/fonts/ProtestGrotesk.woff2) format("woff2"); */
 }
