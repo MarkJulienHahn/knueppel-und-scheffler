@@ -45,12 +45,12 @@ const Project = ({
   useEffect(() => {
     setProject(projects[projIndex]);
     !showProject && setTimeout(scrollUp, 500) && setCredits(false);
-    showProject &&
-      history.replaceState(
-        { query: projIndex, slug: projects[projIndex].slug },
-        `/${projects[projIndex].slug}`,
-        `${projects[projIndex].slug}`
-      );
+    // showProject &&
+    //   history.replaceState(
+    //     { query: projIndex, slug: projects[projIndex].slug },
+    //     `/${projects[projIndex].slug}`,
+    //     `${projects[projIndex].slug}`
+    //   );
 
     // showProject && router.push(`/${projects[projIndex].slug}`, undefined, { shallow: true});
 
