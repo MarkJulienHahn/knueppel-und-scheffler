@@ -11,6 +11,7 @@
 .inner {
   position: relative;
   background: var(--white);
+  min-height: 100vh
 }
 
 .active {
@@ -83,7 +84,12 @@
 .jobsWrapper p,
 .contactWrapper p {
   padding-bottom: 20px;
-  scroll-margin: 80px;
+}
+
+.clientsWrapper,
+.jobsWrapper,
+.contactWrapper {
+  scroll-margin: 60px;
 }
 
 .jobsWrapper h1 {

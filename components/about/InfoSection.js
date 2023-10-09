@@ -4,6 +4,7 @@ import { useRouter, usePathname } from "next/navigation";
 
 import Image from "next/image";
 import PortableText from "react-portable-text";
+import HeadlineElement from "./HeadlineElement";
 
 import Job from "./Job";
 
@@ -26,15 +27,6 @@ const InfoSection = ({
 
   const { ref: aboutRef, inView: aboutVisible } = useInView({
     threshold: 0,
-  });
-  const { ref: clientsRef, inView: clientsVisible } = useInView({
-    threshold: 0.8,
-  });
-  const { ref: jobsRef, inView: jobsVisible } = useInView({
-    threshold: 0.999,
-  });
-  const { ref: contactRef, inView: contactVisible } = useInView({
-    threshold: 0.8,
   });
 
   const clientScrollRef = useRef();
@@ -71,9 +63,9 @@ const InfoSection = ({
 
   useEffect(() => {
     aboutVisible && setTitle("About");
-    clientsVisible && setTitle("Clients");
-    jobsVisible && setTitle("Jobs");
-    contactVisible && setTitle("Contact");
+    // // clientsVisible && setTitle("Clients");
+    // jobsVisible && setTitle("Jobs");
+    // contactVisible && setTitle("Contact");
   });
 
   useEffect(() => {
@@ -95,13 +87,16 @@ const InfoSection = ({
 
   return (
     <>
-      <div ref={aboutScrollRef}></div>
+      <div ref={aboutScrollRef}>
+      </div>
+      <div ref={aboutRef}>
+      </div>
       <div
         className={`${styles.wrapper} ${
           showJobs ? styles.active : styles.inActive
         }`}
         style={{ zIndex: "200" }}
-        ref={aboutRef}
+        
       >
         <div className={styles.inner}>
           <Job
@@ -129,20 +124,24 @@ const InfoSection = ({
             />
           </div>
 
-          <div className={styles.clientsWrapper} ref={clientsRef}>
-            <p className={styles.captions} ref={clientScrollRef}>
-              {lang == "en" ? "Clients" : "Kunden"}
-            </p>
+          <div className={styles.clientsWrapper} ref={clientScrollRef}>
+            <HeadlineElement
+              lang={lang}
+              lable={["Clients", "Kunden"]}
+              setTitle={setTitle}
+            />
             {clients.map((client, i) => (
               <h1 key={i}>{client.client}</h1>
             ))}
           </div>
 
           {jobs.length ? (
-            <div className={styles.jobsWrapper} ref={jobsRef}>
-              <p className={styles.captions} ref={jobsScrollRef}>
-                Jobs
-              </p>
+            <div className={styles.jobsWrapper} ref={jobsScrollRef}>
+              <HeadlineElement
+                lang={lang}
+                lable={["Jobs", "Jobs"]}
+                setTitle={setTitle}
+              />
               {jobs.map((job, i) => (
                 <h1 onClick={() => handleClick(i)} key={i}>
                   {lang == "en" ? job.jobTitleEn : job.jobTitleDe}
@@ -152,10 +151,12 @@ const InfoSection = ({
           ) : (
             ""
           )}
-          <div className={styles.contactWrapper} ref={contactRef}>
-            <p className={styles.captions} ref={contactScrollRef}>
-              {lang == "en" ? "Contact" : "Kontakt"}
-            </p>
+          <div className={styles.contactWrapper} ref={contactScrollRef}>
+            <HeadlineElement
+              lang={lang}
+              lable={["Contact", "Kontakt"]}
+              setTitle={setTitle}
+            />
             <h1>
               Dorotheenstraße 14
               <br />
