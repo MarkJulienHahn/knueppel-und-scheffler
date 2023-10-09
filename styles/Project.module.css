@@ -112,7 +112,7 @@
   z-index: 1000;
   transition: all 0.5s ease;
   background: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.7));
-
+  pointer-events: none;
 }
 
 @media screen and (max-width: 600px) {

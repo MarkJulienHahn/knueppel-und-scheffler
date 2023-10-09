@@ -40,7 +40,7 @@ const Footer = ({
   const ref5 = useRef();
 
   const { ref: bottomRef, inView: visible } = useInView({
-    threshold: 0.9,
+    threshold: 0.7,
   });
 
   useEffect(() => {

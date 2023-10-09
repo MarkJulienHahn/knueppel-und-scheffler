@@ -122,6 +122,7 @@ const InfoSection = ({
             alt={"Studio view of the Knüppel & Scheffler Studio"}
           />
         </div>
+        
         <div className={styles.infoText}>
           <PortableText content={lang == "en" ? about.textEn : about.textDe} />
         </div>
