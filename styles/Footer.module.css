@@ -26,7 +26,7 @@
   /* width: 100%; */
   display: flex;
   justify-content: space-around;
-  padding: 0 var(--space-M);
+  margin: 0 var(--space-M);
   cursor: default;
   pointer-events: auto
 }
@@ -37,26 +37,33 @@
 } */
 
 .item {
-  padding: 0 10px;
-
+  margin: 0 10px;
+  position: relative;
+  /* background: red; */
 }
 
-/* .item a {
+.item a {
   cursor: pointer;
-  padding: 5px 4px;
-} */
+  padding: 4px
+}
+
+.item a:hover {
+  font-family: inherit;
+  opacity: 0;
+}
 
 .item span {
   opacity: 0;
   font-family: "ItalianGaramondItalic";
   position: absolute;
   pointer-events: none;
+  left: 4px;
   /* background: blue; */
 }
 
-/* .item:hover span {
+.item:hover span {
   opacity: 1;
-} */
+}
 
 @media screen and (max-width: 850px) {
   .wrapper {

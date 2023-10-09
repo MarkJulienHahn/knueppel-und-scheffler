@@ -87,111 +87,27 @@ const Footer = ({
           <a onClick={() => setShowImprint(true)}>
             {lang == "en" ? "Imprint" : "Impressum"}
           </a>
+          <span>{lang == "en" ? "Imprint" : "Impressum"}</span>
         </div>
 
         <div className={styles.item} ref={ref2}>
           <a onClick={() => setShowImprint(true)}>
             {lang == "en" ? "Privacy" : "Datenschutz"}
           </a>
-          {/* <span style={{ left: offsets[2] }}>
+          <span>
             {lang == "en" ? "Privacy" : "Datenschutz"}
-          </span> */}
+          </span>
         </div>
 
         <div className={styles.item} ref={ref3}>
           <a onClick={lang == "en" ? () => setLang("de") : () => setLang("en")}>
             {lang == "en" ? "Deutsch" : "English"}
           </a>
-          {/* <span style={{ left: offsets[3] }}>
+          <span>
             {lang == "en" ? "Deutsch" : "English"}
-          </span> */}
+          </span>
         </div>
       </div>
-
-      {/* <div
-        className={styles.row}
-        style={{ color: white ? "var(--white)" : "var(--black)" }}
-      >
-        <p>
-          Dorotheenstraße 14
-          <br /> 10117 Berlin
-        </p>
-
-        <span>
-          <p>(+49) 30 308 77 44 – 200</p>
-          <span>
-            {" "}
-            <a href={"mailto:office@knueppel-scheffler.com"}>
-              office@knueppel-scheffler.com
-            </a>
-            {/* <span style={{ left: offsets[0] }}>
-              office@knueppel-scheffler.com
-            </span> 
-          </span>
-        </span>
-
-        {/* <div className={styles.item} ref={ref}></div> 
-
-        <div className={`${styles.item} ${styles.instagram}`} ref={ref2}>
-          <div>
-            <a
-              href={"https://www.instagram.com/knueppelscheffler_/"}
-              target="blank"
-              rel="_noreferrer"
-            >
-              Instagram
-            </a>
-            <span style={{ left: offsets[1] }}>Instagram</span>
-          </div>{" "}
-          <div>
-            <a
-              href={"https://www.instagram.com/knueppelscheffler_/"}
-              target="blank"
-              rel="_noreferrer"
-            >
-              LinkedIn
-            </a>
-            <span style={{ left: offsets[1] }}>Instagram</span>
-          </div>
-        </div>
-
-        <div className={styles.item} ref={ref3}>
-          <div>
-          <a onClick={() => setShowImprint(true)}>
-            {lang == "en" ? "Imprint" : "Impressum"}
-          </a>
-          <span style={{ left: offsets[2] }}>
-            {lang == "en" ? "Imprint" : "Impressum"}
-          </span>
-          </div>
-          <div>
-          <a onClick={() => setShowImprint(true)}>
-            {lang == "en" ? "Privacy" : "Impressum"}
-          </a>
-          <span style={{ left: offsets[2] }}>
-            {lang == "en" ? "Imprint" : "Impressum"}
-          </span>
-          </div>
-        </div>
-
-        {/* <div className={styles.item} ref={ref4}>
-          <Link href={"/privacy"}>
-            {lang == "en" ? "Privacy" : "Datenschutz"}
-          </Link>
-          <span style={{ left: offsets[3] }}>
-            {lang == "en" ? "Privacy" : "Datenschutz"}
-          </span>
-        </div> 
-
-        <div className={styles.item} ref={ref5}>
-          <a onClick={lang == "en" ? () => setLang("de") : () => setLang("en")}>
-            {lang == "en" ? "Deutsch" : "English"}
-          </a>
-          <span style={{ left: offsets[4] }}>
-            {lang == "en" ? "Deutsch" : "English"}
-          </span>
-        </div>
-      </div> */}
     </div>
   );
 };
