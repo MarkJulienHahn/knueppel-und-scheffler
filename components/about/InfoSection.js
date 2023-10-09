@@ -122,68 +122,70 @@ const InfoSection = ({
             alt={"Studio view of the Knüppel & Scheffler Studio"}
           />
         </div>
-        
-        <div className={styles.infoText}>
-          <PortableText content={lang == "en" ? about.textEn : about.textDe} />
-        </div>
+        <div>
+          <div className={styles.infoText}>
+            <PortableText
+              content={lang == "en" ? about.textEn : about.textDe}
+            />
+          </div>
 
-        <div className={styles.clientsWrapper} ref={clientsRef}>
-          <p className={styles.captions} ref={clientScrollRef}>
-            {lang == "en" ? "Clients" : "Kunden"}
-          </p>
-          {clients.map((client, i) => (
-            <h1 key={i}>{client.client}</h1>
-          ))}
-        </div>
-
-        {jobs.length ? (
-          <div className={styles.jobsWrapper} ref={jobsRef}>
-            <p className={styles.captions} ref={jobsScrollRef}>
-              Jobs
+          <div className={styles.clientsWrapper} ref={clientsRef}>
+            <p className={styles.captions} ref={clientScrollRef}>
+              {lang == "en" ? "Clients" : "Kunden"}
             </p>
-            {jobs.map((job, i) => (
-              <h1 onClick={() => handleClick(i)} key={i}>
-                {lang == "en" ? job.jobTitleEn : job.jobTitleDe}
-              </h1>
+            {clients.map((client, i) => (
+              <h1 key={i}>{client.client}</h1>
             ))}
           </div>
-        ) : (
-          ""
-        )}
 
-        <div className={styles.contactWrapper} ref={contactRef}>
-          <p className={styles.captions} ref={contactScrollRef}>
-            {lang == "en" ? "Contact" : "Kontakt"}
-          </p>
-          <h1>
-            Dorotheenstraße 14
-            <br />
-            10117 Berlin
-            <br />
-            <br />
-            (+49) 30 308 77 44 – 200
-            <br />
-            <a href="mailto:office@knueppel-scheffler.com">
-              office@knueppel-scheffler.com
-            </a>
-            <br />
-            <br />
-            <a
-              href={"https://www.instagram.com/knueppelscheffler_/"}
-              target="blank"
-              rel="_noreferrer"
-            >
-              Instagram
-            </a>
-            <br />
-            <a
-              href={"https://www.linkedin.com/in/eike-knueppel-a9263979/"}
-              target="blank"
-              rel="_noreferrer"
-            >
-              LinkedIn
-            </a>
-          </h1>
+          {jobs.length ? (
+            <div className={styles.jobsWrapper} ref={jobsRef}>
+              <p className={styles.captions} ref={jobsScrollRef}>
+                Jobs
+              </p>
+              {jobs.map((job, i) => (
+                <h1 onClick={() => handleClick(i)} key={i}>
+                  {lang == "en" ? job.jobTitleEn : job.jobTitleDe}
+                </h1>
+              ))}
+            </div>
+          ) : (
+            ""
+          )}
+          <div className={styles.contactWrapper} ref={contactRef}>
+            <p className={styles.captions} ref={contactScrollRef}>
+              {lang == "en" ? "Contact" : "Kontakt"}
+            </p>
+            <h1>
+              Dorotheenstraße 14
+              <br />
+              10117 Berlin
+              <br />
+              <br />
+              (+49) 30 308 77 44 – 200
+              <br />
+              <a href="mailto:office@knueppel-scheffler.com">
+                office@knueppel-scheffler.com
+              </a>
+              <br />
+              <br />
+              <a
+                href={"https://www.instagram.com/knueppelscheffler_/"}
+                target="blank"
+                rel="_noreferrer"
+              >
+                Instagram
+              </a>
+              <br />
+              <a
+                href={"https://www.linkedin.com/in/eike-knueppel-a9263979/"}
+                target="blank"
+                rel="_noreferrer"
+              >
+                LinkedIn
+              </a>
+            </h1>
+          </div>
         </div>
       </div>
     </>

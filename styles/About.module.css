@@ -67,11 +67,10 @@
   font-size: var(--font-size-M);
   line-height: var(--line-height-M);
   left: calc(50vw - 10px);
-  position: absolute;
 }
 
-.clientsWrapper {
-  margin: 200px 0 0 calc(50% + 10px);
+.clientsWrapper, .jobsWrapper, .contactWrapper {
+  margin-top: 200px;
 }
 
 .clientsWrapper h1 {
@@ -85,20 +84,12 @@
   scroll-margin: 80px;
 }
 
-.jobsWrapper {
-  margin: 100px 0 0 calc(50% + 10px);
-}
-
 .jobsWrapper h1 {
   cursor: pointer;
 }
 
 .jobsWrapper h1:hover {
   font-family: "ItalianGaramondItalic";
-}
-
-.contactWrapper {
-  margin: 100px 0 0 calc(50% + 10px);
 }
 
 .closeContainer{
