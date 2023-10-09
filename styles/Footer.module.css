@@ -44,7 +44,8 @@
 
 .item a {
   cursor: pointer;
-  padding: 4px
+  padding: 4px;
+  letter-spacing: 0.5px
 }
 
 .item a:hover {

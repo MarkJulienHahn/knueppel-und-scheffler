@@ -69,7 +69,9 @@
   left: calc(50vw - 10px);
 }
 
-.clientsWrapper, .jobsWrapper, .contactWrapper {
+.clientsWrapper,
+.jobsWrapper,
+.contactWrapper {
   margin-top: 200px;
 }
 
@@ -92,44 +94,44 @@
   font-family: "ItalianGaramondItalic";
 }
 
-.closeContainer{
+.closeContainer {
   position: relative;
   margin: auto;
   width: 50px;
   height: 50px;
-  margin-top: var(--space-S);
+  margin-top: 21px;
   cursor: pointer;
+  mix-blend-mode: difference;
 }
 
-.leftright{
-  height: 4px;
-  width: 50px;
-  position: absolute;
-  background-color: white;
-  border-radius: 2px;
+.leftright {
   transform: rotate(45deg);
-  transition: all .3s ease-out;
 }
 
-.rightleft{
-  height: 4px;
+.rightleft {
+  transform: rotate(-45deg);
+}
+
+.rightleft,
+.leftright {
+  height: 2px;
   width: 50px;
   position: absolute;
   background-color: white;
   border-radius: 2px;
-  transform: rotate(-45deg);
-  transition: all .3s ease-out;
+
+  transition: all 0.3s ease-out;
 }
 
-.closeContainer:hover .leftright{
+.closeContainer:hover .leftright {
   transform: rotate(135deg);
   background-color: white;
 }
-.closeContainer:hover .rightleft{
+.closeContainer:hover .rightleft {
   transform: rotate(45deg);
   background-color: white;
 }
-.closeContainer:hover label{
+.closeContainer:hover label {
   opacity: 1;
 }
 
@@ -156,7 +158,7 @@
     left: 0;
   }
   .clientsWrapper,
-  .jobsWrapper, 
+  .jobsWrapper,
   .contactWrapper {
     margin: 100px 0 0 0;
   }
@@ -170,6 +172,15 @@
     background: linear-gradient(0deg, transparent, var(--white) 20% 100%);
   }
   .captions {
-    display: none
+    display: none;
+  }
+  .closeContainer {
+    top: 0px;
+    width: 30px;
+    height: 25px;
+  }
+  .rightleft,
+  .leftright {
+    width: 30px;
   }
 }

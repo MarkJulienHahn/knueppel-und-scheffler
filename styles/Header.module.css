@@ -15,7 +15,7 @@
 }
 
 .logo img {
-  position: relative !important
+  position: relative !important;
 }
 
 .logoWrapper {
@@ -60,11 +60,13 @@
 }
 
 @media screen and (max-width: 600px) {
-  .wrapper, .imgWrapper {
+  .wrapper,
+  .imgWrapper {
     height: 90vh;
   }
 
   .logo {
-    padding: 0 40px;
+    width: 100vw;
+    padding: 0 20px;
   }
 }

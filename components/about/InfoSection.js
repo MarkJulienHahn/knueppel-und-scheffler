@@ -31,7 +31,7 @@ const InfoSection = ({
     threshold: 0.8,
   });
   const { ref: jobsRef, inView: jobsVisible } = useInView({
-    threshold: 0.8,
+    threshold: 0.999,
   });
   const { ref: contactRef, inView: contactVisible } = useInView({
     threshold: 0.8,

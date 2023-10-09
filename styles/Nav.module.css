@@ -1,5 +1,5 @@
 .wrapper {
-  padding: 40px 0 var(--space-S) 40px;
+  padding: var(--space-S);
   position: -webkit-sticky;
   position: sticky;
   display: block;
