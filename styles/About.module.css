@@ -178,7 +178,9 @@
     background: linear-gradient(0deg, transparent, var(--white) 20% 100%);
   }
   .captions {
-    display: none;
+    opacity: 0;
+    height: 0px;
+    overflow: hidden;
   }
   .closeContainer {
     top: 0px;
