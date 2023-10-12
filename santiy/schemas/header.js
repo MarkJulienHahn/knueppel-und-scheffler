@@ -15,4 +15,10 @@ export default defineType({
     },
     orderRankField({ type: "header" }),
   ],
+  preview: {
+    select: {
+      media: "image",
+      title: "image.alt",
+    },
+  },
 });

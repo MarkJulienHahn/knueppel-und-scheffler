@@ -19,13 +19,35 @@ export default defineType({
       name: "textEn",
       title: "Text English",
       type: "array",
-      of: [{ type: "block" }],
+      of: [
+        {
+          type: "block",
+          styles: [{ title: "Normal", value: "normal" }],
+          lists: [],
+          marks: {
+            decorators: [
+              {title: 'Emphasis', value: 'em'},
+            ]
+          }
+        },
+      ],
     },
     {
       name: "textDe",
       title: "Text German",
       type: "array",
-      of: [{ type: "block" }],
+      of: [
+        {
+          type: "block",
+          styles: [{ title: "Normal", value: "normal" }],
+          lists: [],
+          marks: {
+            decorators: [
+              {title: 'Emphasis', value: 'em'},
+            ]
+          }
+        },
+      ],
     },
     {
       name: "images",
