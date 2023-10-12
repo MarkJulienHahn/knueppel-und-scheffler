@@ -1,9 +1,8 @@
 .wrapper {
   position: fixed;
-
   width: 100vw;
   transition: top 0.5s ease;
-  z-index: 150;
+  z-index: 1500;
   height: 100vh;
   overflow: scroll;
   overscroll-behavior: contain;
@@ -25,6 +24,7 @@
   width: 100vw;
   padding: var(--space-S);
   width: 50%;
+  min-height: 100vh;
 }
 
 .textWrapper p {

@@ -15,6 +15,7 @@
 
 .active {
   top: 0;
+  overscroll-behavior-y: none;
 }
 
 .inActive {
@@ -115,6 +116,50 @@
   pointer-events: none;
 }
 
+.closeContainer {
+  position: fixed;
+  right: 40px;
+  top: 40px;
+  z-index: 100;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  margin-top: 21px;
+  cursor: pointer;
+  mix-blend-mode: difference;
+}
+
+.leftright {
+  transform: rotate(45deg);
+}
+
+.rightleft {
+  transform: rotate(-45deg);
+}
+
+.rightleft,
+.leftright {
+  height: 2px;
+  width: 50px;
+  position: absolute;
+  background-color: white;
+  border-radius: 2px;
+
+  transition: all 0.3s ease-out;
+}
+
+.closeContainer:hover .leftright {
+  transform: rotate(135deg);
+  background-color: white;
+}
+.closeContainer:hover .rightleft {
+  transform: rotate(45deg);
+  background-color: white;
+}
+.closeContainer:hover label {
+  opacity: 1;
+}
+
 @media screen and (max-width: 600px) {
   .image {
     height: 66vh;
@@ -130,5 +175,15 @@
   }
   .footerWrapper {
     height: unset;
+  }
+  .closeContainer {
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 25px;
+  }
+  .rightleft,
+  .leftright {
+    width: 30px;
   }
 }

@@ -27,7 +27,7 @@ const Footer = ({
   setShowImprint,
   showNav,
   setShowNav,
-  showProject
+  setShowPrivacy,
 }) => {
   const [offsets, setOffsets] = useState({});
 
@@ -39,7 +39,7 @@ const Footer = ({
   const ref4 = useRef();
   const ref5 = useRef();
 
-  const { ref: bottomRef, inView: visible } = useInView({
+  const { ref: bottomRef, inView: isVisible } = useInView({
     threshold: 0.7,
   });
 
@@ -64,13 +64,13 @@ const Footer = ({
   }, [windowWidth]);
 
   useEffect(() => {
-    visible ? setShowNav(false) : setShowNav(true);
-  }, [visible]);
-
+    isVisible ? setShowNav(false) : setShowNav(true);
+  }, [isVisible]);
 
   return (
     <div className={styles.wrapper} ref={bottomRef}>
-      <div className={styles.logo} style={!showNav ? visible : invisible}>
+      <div className={styles.logo} 
+      style={!showNav ? visible : invisible}      >
         <Image
           fill
           src={white ? logoNeg : logo}
@@ -91,21 +91,17 @@ const Footer = ({
         </div>
 
         <div className={styles.item} ref={ref2}>
-          <a onClick={() => setShowImprint(true)}>
+          <a onClick={() => setShowPrivacy(true)}>
             {lang == "en" ? "Privacy" : "Datenschutz"}
           </a>
-          <span>
-            {lang == "en" ? "Privacy" : "Datenschutz"}
-          </span>
+          <span>{lang == "en" ? "Privacy" : "Datenschutz"}</span>
         </div>
 
         <div className={styles.item} ref={ref3}>
           <a onClick={lang == "en" ? () => setLang("de") : () => setLang("en")}>
             {lang == "en" ? "Deutsch" : "English"}
           </a>
-          <span>
-            {lang == "en" ? "Deutsch" : "English"}
-          </span>
+          <span>{lang == "en" ? "Deutsch" : "English"}</span>
         </div>
       </div>
     </div>

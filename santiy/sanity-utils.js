@@ -29,7 +29,9 @@ export async function getProjects() {
 export async function getAbout() {
   return client.fetch(
     groq`*[_type == "about"]{
-      "image": image.asset->url,
+      "aboutImage": aboutImage.asset->url,
+      "clientsImage": clientsImage.asset->url,
+      "jobsImage": jobsImage.asset->url,
       textEn, textDe,
   }`
   );
@@ -47,4 +49,8 @@ export async function getJobs() {
 
 export async function getImprint() {
   return client.fetch(groq`*[_type == "imprint"]{...}`);
+}
+
+export async function getPrivacy() {
+  return client.fetch(groq`*[_type == "privacy"]{...}`);
 }

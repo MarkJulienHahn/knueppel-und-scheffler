@@ -14,6 +14,7 @@ import { Autoplay } from "swiper/modules";
 const Header = ({ header }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [opacity, setOpacity] = useState(1);
+  const [showArrow, setShowArrow] = useState(false);
 
   const handleScroll = () => {
     const position = window.pageYOffset;
@@ -23,6 +24,10 @@ const Header = ({ header }) => {
   const { ref: ref, inView: visible } = useInView({
     threshold: 0,
   });
+
+  const arrowFunction = () => {
+    setShowArrow(true);
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
@@ -37,8 +42,16 @@ const Header = ({ header }) => {
   }, [scrollPosition]);
 
   useEffect(() => {
-    !visible && setOpacity(0);
+    !visible && scrollPosition > 100 && setOpacity(0);
   }, [visible]);
+
+  useEffect(() => {
+    scrollPosition >= 100 && setShowArrow(false);
+  }, [scrollPosition]);
+
+  useEffect(() => {
+    setTimeout(arrowFunction, 3000);
+  }, []);
 
   return (
     <div className={styles.wrapper} ref={ref}>
@@ -53,10 +66,17 @@ const Header = ({ header }) => {
         </div>
       </div>
 
+      <div
+        className={styles.arrowWrapper}
+        style={{ opacity: showArrow ? "1" : "0" }}
+      >
+        <div className={styles.arrow}>↓</div>
+      </div>
+
       <Swiper
         loop={true}
         autoplay={{
-          delay: 2500,
+          delay: 4000,
         }}
         modules={[Autoplay]}
         speed={1000}

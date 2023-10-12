@@ -3,6 +3,8 @@ import { useInView } from "react-intersection-observer";
 import { useRouter, usePathname } from "next/navigation";
 
 import Image from "next/image";
+
+import ImageElement from "./ImageElement";
 import PortableText from "react-portable-text";
 import HeadlineElement from "./HeadlineElement";
 
@@ -19,8 +21,11 @@ const InfoSection = ({
   scrollTarget,
   showAbout,
 }) => {
+  const images = [about.aboutImage, about.clientsImage, about.jobsImage];
+
   const [showJobs, setShowJobs] = useState(false);
   const [jobIndex, setJobIndex] = useState(0);
+  const [imageIndex, setImageIndex] = useState(0);
 
   const router = useRouter();
   const pathname = usePathname();
@@ -51,21 +56,8 @@ const InfoSection = ({
     aboutScrollRef.current?.scrollIntoView();
   };
 
-  // useEffect(() => {
-  //   aboutVisible && lang == "en" && setTitle("About");
-  //   clientsVisible && lang == "en" && setTitle("Clients");
-  //   jobsVisible && lang == "en" && setTitle("Jobs");
-
-  //   aboutVisible && lang == "de" && setTitle("Über Uns");
-  //   clientsVisible && lang == "de" && setTitle("Kunden");
-  //   jobsVisible && lang == "de" && setTitle("Jobs");
-  // });
-
   useEffect(() => {
     aboutVisible && setTitle("About");
-    // // clientsVisible && setTitle("Clients");
-    // jobsVisible && setTitle("Jobs");
-    // contactVisible && setTitle("Contact");
   });
 
   useEffect(() => {
@@ -85,18 +77,19 @@ const InfoSection = ({
     !showAbout && routerBackAction();
   }, [showAbout]);
 
+  console.log(imageIndex);
+
   return (
     <>
       <div ref={aboutScrollRef}>
+        <ImageElement index={0} setImageIndex={setImageIndex} />
       </div>
-      <div ref={aboutRef}>
-      </div>
+      <div ref={aboutRef}></div>
       <div
         className={`${styles.wrapper} ${
           showJobs ? styles.active : styles.inActive
         }`}
         style={{ zIndex: "200" }}
-        
       >
         <div className={styles.inner}>
           <Job
@@ -112,8 +105,8 @@ const InfoSection = ({
         <div className={styles.infoImage}>
           <Image
             fill
-            src={about.image}
-            style={{ objectFit: "contain" }}
+            src={images[imageIndex]}
+            style={{ objectFit: "cover" }}
             alt={"Studio view of the Knüppel & Scheffler Studio"}
           />
         </div>
@@ -130,6 +123,7 @@ const InfoSection = ({
               lable={["Clients", "Kunden"]}
               setTitle={setTitle}
             />
+            <ImageElement index={1} setImageIndex={setImageIndex} />
             {clients.map((client, i) => (
               <h1 key={i}>{client.client}</h1>
             ))}
@@ -142,6 +136,7 @@ const InfoSection = ({
                 lable={["Jobs", "Jobs"]}
                 setTitle={setTitle}
               />
+              <ImageElement index={2} setImageIndex={setImageIndex} />
               {jobs.map((job, i) => (
                 <h1 onClick={() => handleClick(i)} key={i}>
                   {lang == "en" ? job.jobTitleEn : job.jobTitleDe}

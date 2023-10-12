@@ -5,6 +5,7 @@ import {
   getClients,
   getJobs,
   getImprint,
+  getPrivacy
 } from "../../santiy/sanity-utils";
 
 import Main from "../../components/Main";
@@ -16,6 +17,7 @@ export default async function Page() {
   const clients = await getClients();
   const jobs = await getJobs();
   const imprint = await getImprint();
+  const privacy = await getPrivacy();
 
   return (
     <div>
@@ -26,6 +28,7 @@ export default async function Page() {
         clients={clients}
         jobs={jobs}
         imprint={imprint}
+        privacy={privacy}
       />
     </div>
   );

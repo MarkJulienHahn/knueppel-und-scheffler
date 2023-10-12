@@ -16,6 +16,7 @@
 
 .active {
   top: 0;
+  overscroll-behavior-y: none;
 }
 
 .inActive {
@@ -37,6 +38,10 @@
   pointer-events: none;
   color: white;
   mix-blend-mode: difference;
+}
+
+.headline h1 {
+  padding-left: 5px;
 }
 
 @keyframes fadeIn {

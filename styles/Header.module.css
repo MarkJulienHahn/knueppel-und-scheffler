@@ -31,6 +31,32 @@
   pointer-events: none;
 }
 
+.arrowWrapper {
+  position: fixed;
+  bottom: 70px;
+  left: 50%;
+  transition: opacity 0.5s ease;
+  z-index: 100;
+  pointer-events: none;
+}
+
+.arrow {
+  color: white;
+  font-size: 40pt;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  animation: 1s ease-in 1s infinite alternate both running upDown;
+}
+
+@keyframes upDown {
+  0% {
+    transform: translateY(0px);
+  }
+  100% {
+    transform: translateY(20px);
+  }
+}
+
 .imgWrapper {
   width: 100vw;
   height: 100vh;
@@ -68,5 +94,9 @@
   .logo {
     width: 100vw;
     padding: 0 20px;
+  }
+
+  .arrowWrapper {
+    display: none;
   }
 }

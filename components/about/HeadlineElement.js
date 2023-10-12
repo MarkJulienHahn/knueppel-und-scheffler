@@ -13,8 +13,6 @@ const HeadlineElement = ({ lang, lable, setTitle }) => {
     pos?.y <= 200 && pos.y >= 0 && setTitle(lang == "en" ? lable[0] : lable[1]);
   }, [pos]);
 
-  // console.log(pos.y)
-
   return (
     <p className={styles.captions} ref={ref}>
       {lang == "en" ? lable[0] : lable[1]}

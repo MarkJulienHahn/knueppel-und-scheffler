@@ -1,32 +1,35 @@
+"use client";
+
 import { useState, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { useRouter } from "next/navigation";
 
 import PortableText from "react-portable-text";
 import Image from "next/image";
+import Link from "next/link";
 
 import styles from "../../styles/Project.module.css";
 
 import Headline from "../about/Headline";
 import Footer from "../Footer";
+import Imprint from "../imprint/Imprint";
 
-const Project = ({
-  lang,
-  setLang,
-  projIndex,
-  projects,
-  showProject,
-  setShowProject,
-  setShowNav,
-  setShowPrivacy,
-  setShowImprint,
-  showNav
-}) => {
+export default function ProjectSingle({ projects, imprint, privacy, slug }) {
   const [credits, setCredits] = useState(false);
   const [height, setHeight] = useState();
-  const [project, setProject] = useState(projects[projIndex]);
+  const [showProject, setShowProject] = useState(true);
+  const [showImprint, setShowImprint] = useState(false);
+  const [showPrivacy, setShowPrivacy] = useState(false);
+  const [showNav, setShowNav] = useState(false)
+  const [lang, setLang] = useState("en");
 
   const router = useRouter();
+
+  const project = projects.filter((p) => p.slug == slug)[0];
+
+  const routerAction = () => {
+    setShowProject(false), setTimeout(router.push("/"), 1000);
+  };
 
   const ref2 = useRef();
   const topRef = useRef();
@@ -35,37 +38,26 @@ const Project = ({
     threshold: 0.8,
   });
 
-  const scrollUp = () => {
-    topRef.current?.scrollIntoView();
-  };
-
   useEffect(() => {
     setHeight(ref2.current?.clientHeight);
-    !showProject ?? setCredits(false);
   });
 
-  useEffect(() => {
-    setProject(projects[projIndex]);
-    !showProject && setTimeout(scrollUp, 500) && setCredits(false);
-    showProject &&
-      history.replaceState(
-        { query: projIndex, slug: projects[projIndex].slug },
-        `/${projects[projIndex].slug}`,
-        `${projects[projIndex].slug}`
-      );
-
-    // showProject && router.push(`/${projects[projIndex].slug}`, undefined, { shallow: true});
-
-    !showProject && history.replaceState(null, "/", "/");
-  }, [showProject]);
-
   return (
-    <div
-      className={`${styles.wrapper} ${
-        showProject ? styles.active : styles.inActive
-      }`}
-    >
-      {showProject && (
+    <>
+      <Imprint
+        lang={lang}
+        showImprint={showImprint}
+        showPrivacy={showPrivacy}
+        setShowImprint={setShowImprint}
+        setShowPrivacy={setShowPrivacy}
+        imprint={imprint[0]}
+        privacy={privacy[0]}
+      />
+      <div
+        className={`${styles.wrapper} ${
+          showProject ? styles.active : styles.inActive
+        }`}
+      >
         <>
           <div
             className={styles.infoOuter}
@@ -73,11 +65,6 @@ const Project = ({
           >
             <div
               className={styles.info}
-              // style={{
-              //   background: !credits
-              //     ? "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4))"
-              //     : "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9))",
-              // }}
             >
               <h1 onClick={() => setCredits(!credits)}>{project.name}</h1>
               <div
@@ -117,30 +104,32 @@ const Project = ({
             style={{ opacity: !credits ? "0.4" : "1" }}
           ></div>
         </>
-      )}
-      <div className={styles.inner}>
-        {showProject && (
-          <Headline title={""} close={() => setShowProject(false)} />
-        )}
-        <div ref={topRef}></div>
-        {project.images.map((image, i) => (
-          <div className={styles.image} key={i}>
-            <Image
-              fill
-              src={image.url}
-              placeholder={"blur"}
-              blurDataURL={image.metadata.lqip}
-              style={{ objectFit: "cover" }}
-              alt={image.alt ? image.alt : "An image by Knüppel & Scheffler"}
-            />
+
+        <div className={styles.inner}>
+          <div className={styles.closeContainer} onClick={routerAction}>
+            <div className={styles.leftright}></div>
+            <div className={styles.rightleft}></div>
           </div>
-        ))}
-        <div
-          className={styles.footerWrapper}
-          style={inView ? { opacity: "1" } : { opacity: "0" }}
-          ref={ref}
-        >
-          <Footer
+
+          <div ref={topRef}></div>
+          {project.images.map((image, i) => (
+            <div className={styles.image} key={i}>
+              <Image
+                fill
+                src={image.url}
+                placeholder={"blur"}
+                blurDataURL={image.metadata.lqip}
+                style={{ objectFit: "cover" }}
+                alt={image.alt ? image.alt : "An image by Knüppel & Scheffler"}
+              />
+            </div>
+          ))}
+          <div
+            className={styles.footerWrapper}
+            //   style={inView ? { opacity: "1" } : { opacity: "0" }}
+            ref={ref}
+          >
+            <Footer
             white={true}
             lang={lang}
             setLang={setLang}
@@ -149,10 +138,9 @@ const Project = ({
             setShowImprint={setShowImprint}
             setShowPrivacy={setShowPrivacy}
           />
+          </div>
         </div>
       </div>
-    </div>
+    </>
   );
-};
-
-export default Project;
+}

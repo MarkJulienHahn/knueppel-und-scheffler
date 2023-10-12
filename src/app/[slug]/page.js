@@ -5,31 +5,22 @@ import {
   getClients,
   getJobs,
   getImprint,
-  getPrivacy
+  getPrivacy,
 } from "../../../santiy/sanity-utils";
 
-import Main from "../../../components/Main";
+import ProjectSingle from "../../../components/project/ProjectSingle";
 
-export default async function Page() {
-  const header = await getHeader();
+export default async function Page({ params }) {
   const projects = await getProjects();
-  const about = await getAbout();
-  const clients = await getClients();
-  const jobs = await getJobs();
   const imprint = await getImprint();
   const privacy = await getPrivacy();
-
   return (
     <div>
-      <Main
-        header={header}
+      <ProjectSingle
         projects={projects}
-        about={about[0]}
-        clients={clients}
-        jobs={jobs}
         imprint={imprint}
         privacy={privacy}
-        aboutPage={true}
+        slug={params.slug}
       />
     </div>
   );

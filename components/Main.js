@@ -15,12 +15,14 @@ const Main = ({
   clients,
   jobs,
   imprint,
+  privacy,
   aboutPage,
 }) => {
   const [lang, setLang] = useState("en");
 
   const [showAbout, setShowAbout] = useState(false);
   const [showImprint, setShowImprint] = useState(false);
+  const [showPrivacy, setShowPrivacy] = useState(false)
   const [showProject, setShowProject] = useState(false);
   const [showNav, setShowNav] = useState(true);
 
@@ -44,13 +46,18 @@ const Main = ({
       <Imprint
         lang={lang}
         showImprint={showImprint}
+        showPrivacy={showPrivacy}
         setShowImprint={setShowImprint}
+        setShowPrivacy={setShowPrivacy}
         imprint={imprint[0]}
+        privacy={privacy[0]}
       />
       <Project
         lang={lang}
         setLang={setLang}
         setShowProject={setShowProject}
+        setShowImprint={setShowImprint}
+        setShowPrivacy={setShowPrivacy}
         showProject={showProject}
         projIndex={projIndex}
         projects={projects}
@@ -66,6 +73,8 @@ const Main = ({
         clients={clients}
         jobs={jobs}
         setShowAbout={setShowAbout}
+        setShowImprint={setShowImprint}
+        setShowPrivacy={setShowPrivacy}
         showAbout={showAbout}
         setShowNav={setShowNav}
         showNav={showNav}
@@ -83,6 +92,7 @@ const Main = ({
           showProject={showProject}
           setShowAbout={setShowAbout}
           setShowImprint={setShowImprint}
+          setShowPrivacy={setShowPrivacy}
           projects={projects}
           setShowNav={setShowNav}
           showNav={showNav}

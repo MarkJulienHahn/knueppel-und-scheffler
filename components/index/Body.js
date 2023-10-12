@@ -15,6 +15,7 @@ const Body = ({
   setShowProject,
   setShowAbout,
   setShowImprint,
+  setShowPrivacy,
   setScrollTarget,
   projects,
   showNav,
@@ -38,6 +39,7 @@ const Body = ({
         lang={lang}
         setLang={setLang}
         setShowImprint={setShowImprint}
+        setShowPrivacy={setShowPrivacy}
         showNav={showNav}
         setShowNav={setShowNav}
         showProject={showProject}
