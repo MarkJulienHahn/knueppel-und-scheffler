@@ -25,6 +25,7 @@ const SwiperInner = ({ entry }) => {
           style={{ objectFit: "cover" }}
           placeholder={"blur"}
           blurDataURL={entry.image.metadata.lqip}
+          loading={"eager"}
           alt={
             entry.image.alt
               ? entry.image.alt
