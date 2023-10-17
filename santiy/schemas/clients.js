@@ -11,6 +11,11 @@ export default defineType({
       title: "Client",
       type: "string",
     },
+    {
+      name: "link",
+      title: "Link",
+      type: "url",
+    },
     orderRankField({ type: "clients" }),
   ],
 });

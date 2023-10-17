@@ -13,7 +13,7 @@ const singletonTypes = new Set(["settings"]);
 const config = defineConfig({
   projectId: "saau1ctb",
   dataset: "production",
-  title: "Knüppel & Scheffler",
+  title: "Knueppel & Scheffler",
   apiVersion: "2023-09-26",
   basePath: "/admin",
   plugins: [

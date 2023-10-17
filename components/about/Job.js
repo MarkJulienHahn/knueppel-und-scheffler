@@ -15,7 +15,7 @@ const Job = ({ lang, jobs, jobIndex, showJobs, setShowJobs }) => {
         </div>
 
         <h1 className={styles.link}>
-          <a href="mailto:office@knueppel-scheffler.com">Apply Now</a>
+          <a href={`mailto:office@knueppel-scheffler.com?subject=${job.jobTitleEn} application`}>Apply Now</a>
         </h1>
       </div>
     </>
