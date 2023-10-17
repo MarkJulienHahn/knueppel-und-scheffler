@@ -25,7 +25,7 @@ export default defineType({
           type: "block",
           styles: [
             { title: "Normal", value: "normal" },
-            { title: "Headline", value: "h1" },
+            { title: "H1", value: "h1" },
           ],
           lists: [],
           marks: {
@@ -43,7 +43,7 @@ export default defineType({
           type: "block",
           styles: [
             { title: "Normal", value: "normal" },
-            { title: "Headline", value: "h1" },
+            { title: "H1", value: "h1" },
           ],
           lists: [],
           marks: {
