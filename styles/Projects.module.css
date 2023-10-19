@@ -2,12 +2,12 @@
   width: 100vw;
   padding: var(--space-M);
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   flex-wrap: wrap;
 }
 
 .tile {
-  width: 30%;
+  width: 33.3333%;
   display: flex;
   flex-direction: column;
   align-items: center;

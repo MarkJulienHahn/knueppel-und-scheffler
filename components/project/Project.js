@@ -132,6 +132,7 @@ const Project = ({
               blurDataURL={image.metadata.lqip}
               style={{ objectFit: "cover" }}
               alt={image.alt ? image.alt : "An image by Knüppel & Scheffler"}
+              priority={true}
             />
           </div>
         ))}
