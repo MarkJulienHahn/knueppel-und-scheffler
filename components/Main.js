@@ -22,7 +22,7 @@ const Main = ({
 
   const [showAbout, setShowAbout] = useState(false);
   const [showImprint, setShowImprint] = useState(false);
-  const [showPrivacy, setShowPrivacy] = useState(false)
+  const [showPrivacy, setShowPrivacy] = useState(false);
   const [showProject, setShowProject] = useState(false);
   const [showNav, setShowNav] = useState(true);
 
@@ -38,8 +38,12 @@ const Main = ({
   }, []);
 
   useEffect(() => {
-    localStorage.setItem("lang", JSON.stringify(lang));
-  });
+    navigator.language.includes("de") || navigator.userLanguage?.includes("de")
+      ? setLang("de")
+      : setLang("en");
+  }, []);
+
+  console.log(navigator.language, navigator?.userLanguage)
 
   return (
     <>

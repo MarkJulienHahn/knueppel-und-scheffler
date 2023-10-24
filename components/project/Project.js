@@ -20,7 +20,7 @@ const Project = ({
   setShowNav,
   setShowPrivacy,
   setShowImprint,
-  showNav
+  showNav,
 }) => {
   const [credits, setCredits] = useState(false);
   const [height, setHeight] = useState();
@@ -54,8 +54,6 @@ const Project = ({
         `${projects[projIndex].slug}`
       );
 
-    // showProject && router.push(`/${projects[projIndex].slug}`, undefined, { shallow: true});
-
     !showProject && history.replaceState(null, "/", "/");
   }, [showProject]);
 
@@ -71,14 +69,7 @@ const Project = ({
             className={styles.infoOuter}
             style={!inView ? { opacity: "1" } : { opacity: "0" }}
           >
-            <div
-              className={styles.info}
-              // style={{
-              //   background: !credits
-              //     ? "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.4))"
-              //     : "linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.9))",
-              // }}
-            >
+            <div className={styles.info}>
               <h1 onClick={() => setCredits(!credits)}>{project.name}</h1>
               <div
                 className={styles.credits}
@@ -96,9 +87,13 @@ const Project = ({
                     }}
                     onClick={() => setCredits(!credits)}
                   >
-                    <PortableText
-                      content={lang == "en" ? project.textEn : project.textDe}
-                    />
+                    {project.textEn && project.textDe ? (
+                      <PortableText
+                        content={lang == "en" ? project.textEn : project.textDe}
+                      />
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
               </div>

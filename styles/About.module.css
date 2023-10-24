@@ -55,7 +55,7 @@
 
 .infoWrapper {
   display: flex;
-  flex-wrap: wrap;
+  /* flex-wrap: wrap; */
   padding: 300px var(--space-M);
   position: relative;
 }
@@ -83,6 +83,7 @@
 
 .clientsWrapper h1 {
   text-transform: uppercase;
+  max-width: 40vw;
 }
 
 .clientsWrapper p,
@@ -146,7 +147,7 @@
   opacity: 1;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
   .infoWrapper {
     display: block;
     padding: 70px var(--space-S);

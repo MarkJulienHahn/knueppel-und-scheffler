@@ -58,7 +58,7 @@ const InfoSection = ({
 
   useEffect(() => {
     aboutVisible && setTitle("About");
-  });
+  }, [aboutVisible]);
 
   useEffect(() => {
     scrollTarget == "clients" &&
@@ -76,8 +76,6 @@ const InfoSection = ({
     showAbout && routerAboutAction();
     !showAbout && routerBackAction();
   }, [showAbout]);
-
-  console.log(imageIndex);
 
   return (
     <>

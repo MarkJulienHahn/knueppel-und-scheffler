@@ -20,7 +20,7 @@ export default function ProjectSingle({ projects, imprint, privacy, slug }) {
   const [showProject, setShowProject] = useState(true);
   const [showImprint, setShowImprint] = useState(false);
   const [showPrivacy, setShowPrivacy] = useState(false);
-  const [showNav, setShowNav] = useState(false)
+  const [showNav, setShowNav] = useState(false);
   const [lang, setLang] = useState("en");
 
   const router = useRouter();
@@ -40,7 +40,7 @@ export default function ProjectSingle({ projects, imprint, privacy, slug }) {
 
   useEffect(() => {
     setHeight(ref2.current?.clientHeight);
-  });
+  }, []);
 
   return (
     <>
@@ -63,9 +63,7 @@ export default function ProjectSingle({ projects, imprint, privacy, slug }) {
             className={styles.infoOuter}
             style={!inView ? { opacity: "1" } : { opacity: "0" }}
           >
-            <div
-              className={styles.info}
-            >
+            <div className={styles.info}>
               <h1 onClick={() => setCredits(!credits)}>{project.name}</h1>
               <div
                 className={styles.credits}
@@ -83,9 +81,13 @@ export default function ProjectSingle({ projects, imprint, privacy, slug }) {
                     }}
                     onClick={() => setCredits(!credits)}
                   >
-                    <PortableText
-                      content={lang == "en" ? project.textEn : project.textDe}
-                    />
+                    {project.textEn && project.textDe ? (
+                      <PortableText
+                        content={lang == "en" ? project.textEn : project.textDe}
+                      />
+                    ) : (
+                      ""
+                    )}
                   </div>
                 </div>
               </div>
@@ -130,14 +132,14 @@ export default function ProjectSingle({ projects, imprint, privacy, slug }) {
             ref={ref}
           >
             <Footer
-            white={true}
-            lang={lang}
-            setLang={setLang}
-            setShowNav={setShowNav}
-            showNav={showNav}
-            setShowImprint={setShowImprint}
-            setShowPrivacy={setShowPrivacy}
-          />
+              white={true}
+              lang={lang}
+              setLang={setLang}
+              setShowNav={setShowNav}
+              showNav={showNav}
+              setShowImprint={setShowImprint}
+              setShowPrivacy={setShowPrivacy}
+            />
           </div>
         </div>
       </div>

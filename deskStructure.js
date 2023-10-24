@@ -33,6 +33,16 @@ export const myStructure = (S, context) =>
         S,
         context,
       }),
+      
+      S.listItem()
+        .title("Clients")
+        .schemaType("clients")
+        .child(
+          S.documentList()
+            .title("Clients")
+            .filter('_type == "clients"')
+        ),
+
       orderableDocumentListDeskItem({
         type: "jobs",
         title: "Jobs",
