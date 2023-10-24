@@ -7,11 +7,6 @@ export default defineType({
   type: "document",
   fields: [
     {
-      name: "name",
-      title: "Client",
-      type: "string",
-    },
-    {
       name: "client",
       title: "Client",
       type: "string",

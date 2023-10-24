@@ -7,7 +7,7 @@ const HeadlineElement = ({ lang, lable, setTitle }) => {
 
   useEffect(() => {
     setPos(ref.current?.getBoundingClientRect());
-  }, [pos]);
+  }, [ref.current?.getBoundingClientRect()]);
 
   useEffect(() => {
     pos?.y <= 200 && pos.y >= 0 && setTitle(lang == "en" ? lable[0] : lable[1]);

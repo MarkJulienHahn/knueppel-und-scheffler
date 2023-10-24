@@ -6,6 +6,8 @@ const client = createClient({
   apiVersion: "2023-09-26",
 });
 
+export default client;
+
 export async function getHeader() {
   return client.fetch(
     groq`*[_type == "header"]|order(orderRank){"image": image.asset->{...}}`

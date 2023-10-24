@@ -19,7 +19,7 @@
 }
 
 .logoWrapper {
-  position: fixed;
+  position: absolute;
   width: 100vw;
   display: flex;
   justify-content: center;

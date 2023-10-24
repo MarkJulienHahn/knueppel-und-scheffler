@@ -7,7 +7,7 @@ const ImageElement = ({ setImageIndex, index }) => {
 
   useEffect(() => {
     setPos(ref.current?.getBoundingClientRect());
-  }, [pos]);
+  }, [ref.current?.getBoundingClientRect()]);
 
   useEffect(() => {
     pos?.y <= 200 && pos.y >= 0 && setImageIndex(index);

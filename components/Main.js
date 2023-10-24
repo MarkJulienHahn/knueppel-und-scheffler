@@ -29,19 +29,20 @@ const Main = ({
   const [projIndex, setProjIndex] = useState(0);
   const [scrollTarget, setScrollTarget] = useState("");
 
-  useEffect(() => {
-    const data = localStorage.getItem("lang");
-    if (data) {
-      setLang(JSON.parse(data));
-    }
-    aboutPage && setShowAbout(true);
-  }, []);
+  // useEffect(() => {
+  //   const data = localStorage.getItem("lang");
+  //   if (data) {
+  //     setLang(JSON.parse(data));
+  //   }
+  //   aboutPage && setShowAbout(true);
+  // }, []);
 
   useEffect(() => {
     navigator.language.includes("de") || navigator.userLanguage?.includes("de")
       ? setLang("de")
       : setLang("en");
   }, []);
+
 
   return (
     <>
@@ -54,6 +55,7 @@ const Main = ({
         imprint={imprint[0]}
         privacy={privacy[0]}
       />
+
       <Project
         lang={lang}
         setLang={setLang}

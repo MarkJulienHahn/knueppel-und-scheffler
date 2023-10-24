@@ -2,7 +2,15 @@ import styles from "../../styles/Projects.module.css";
 
 import Image from "next/image";
 
-const ProjectTile = ({ setProjIndex, i, setShowProject, project, setShowNav }) => {
+import { urlFor } from "../../hooks/useImageUrlBuilder";
+
+const ProjectTile = ({
+  setProjIndex,
+  i,
+  setShowProject,
+  project,
+  setShowNav,
+}) => {
   const handleClick = () => {
     setProjIndex(i), setShowProject(true);
   };
@@ -12,7 +20,7 @@ const ProjectTile = ({ setProjIndex, i, setShowProject, project, setShowNav }) =
       <div className={styles.image}>
         <Image
           fill
-          src={project.image.url}
+          src={urlFor(project.image.url).format("webp").width(1000).quality(50).url()}
           style={{ objectFit: "cover" }}
           placeholder={"blur"}
           blurDataURL={project.image.metadata.lqip}

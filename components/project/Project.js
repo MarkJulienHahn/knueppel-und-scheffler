@@ -2,8 +2,12 @@ import { useState, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { useRouter } from "next/navigation";
 
+import useWindowDimensions from "../../hooks/useWindowDimensions";
+
 import PortableText from "react-portable-text";
 import Image from "next/image";
+
+import { urlFor } from "../../hooks/useImageUrlBuilder";
 
 import styles from "../../styles/Project.module.css";
 
@@ -26,7 +30,7 @@ const Project = ({
   const [height, setHeight] = useState();
   const [project, setProject] = useState(projects[projIndex]);
 
-  const router = useRouter();
+  const { windowWidth, windowHeight } = useWindowDimensions();
 
   const ref2 = useRef();
   const topRef = useRef();
@@ -37,6 +41,10 @@ const Project = ({
 
   const scrollUp = () => {
     topRef.current?.scrollIntoView();
+  };
+
+  const resetProject = () => {
+    setProject(null);
   };
 
   useEffect(() => {
@@ -57,6 +65,12 @@ const Project = ({
     !showProject && history.replaceState(null, "/", "/");
   }, [showProject]);
 
+  useEffect(() => {
+    !showProject && setTimeout(resetProject, 500);
+  }, [showProject]);
+
+  console.log(project)
+
   return (
     <div
       className={`${styles.wrapper} ${
@@ -70,7 +84,7 @@ const Project = ({
             style={!inView ? { opacity: "1" } : { opacity: "0" }}
           >
             <div className={styles.info}>
-              <h1 onClick={() => setCredits(!credits)}>{project.name}</h1>
+              <h1 onClick={() => setCredits(!credits)}>{project?.name}</h1>
               <div
                 className={styles.credits}
                 style={
@@ -87,9 +101,11 @@ const Project = ({
                     }}
                     onClick={() => setCredits(!credits)}
                   >
-                    {project.textEn && project.textDe ? (
+                    {project?.textEn && project?.textDe ? (
                       <PortableText
-                        content={lang == "en" ? project.textEn : project.textDe}
+                        content={
+                          lang == "en" ? project?.textEn : project?.textDe
+                        }
                       />
                     ) : (
                       ""
@@ -118,19 +134,22 @@ const Project = ({
           <Headline title={""} close={() => setShowProject(false)} />
         )}
         <div ref={topRef}></div>
-        {project.images.map((image, i) => (
+
+        {project?.images.map((image, i) => (
           <div className={styles.image} key={i}>
             <Image
               fill
-              src={image.url}
+              src={urlFor(image.url).format("webp").width(windowWidth).url()}
               placeholder={"blur"}
               blurDataURL={image.metadata.lqip}
               style={{ objectFit: "cover" }}
               alt={image.alt ? image.alt : "An image by Knüppel & Scheffler"}
-              priority={true}
+              priority={i <= 2 ? true : false}
+              quality={3}
             />
           </div>
         ))}
+
         <div
           className={styles.footerWrapper}
           style={inView ? { opacity: "1" } : { opacity: "0" }}

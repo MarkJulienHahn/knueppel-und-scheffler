@@ -4,9 +4,13 @@ import { useState, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { useRouter } from "next/navigation";
 
+import useWindowDimensions from "../../hooks/useWindowDimensions";
+
 import PortableText from "react-portable-text";
 import Image from "next/image";
 import Link from "next/link";
+
+import { urlFor } from "../../hooks/useImageUrlBuilder";
 
 import styles from "../../styles/Project.module.css";
 
@@ -23,6 +27,8 @@ export default function ProjectSingle({ projects, imprint, privacy, slug }) {
   const [showNav, setShowNav] = useState(false);
   const [lang, setLang] = useState("en");
 
+  const { windowWidth, windowHeight } = useWindowDimensions();
+
   const router = useRouter();
 
   const project = projects.filter((p) => p.slug == slug)[0];
@@ -38,9 +44,20 @@ export default function ProjectSingle({ projects, imprint, privacy, slug }) {
     threshold: 0.8,
   });
 
+  // const resetProject = () => {
+  //   setProject(null);
+  // };
+
+
   useEffect(() => {
     setHeight(ref2.current?.clientHeight);
   }, []);
+
+  // useEffect(() => {
+  //   !showProject && setTimeout(resetProject, 500);
+  // }, [showProject]);
+
+  console.log(urlFor(project?.images[2].url).format("webp").width(windowWidth))
 
   return (
     <>
@@ -114,18 +131,22 @@ export default function ProjectSingle({ projects, imprint, privacy, slug }) {
           </div>
 
           <div ref={topRef}></div>
-          {project.images.map((image, i) => (
+
+          {project?.images.map((image, i) => (
             <div className={styles.image} key={i}>
               <Image
                 fill
-                src={image.url}
+                src={urlFor(image.url).format("webp").width(1800).url()}
                 placeholder={"blur"}
                 blurDataURL={image.metadata.lqip}
                 style={{ objectFit: "cover" }}
                 alt={image.alt ? image.alt : "An image by Knüppel & Scheffler"}
+                priority={i <= 2 ? true : false}
+                quality={10}
               />
             </div>
           ))}
+
           <div
             className={styles.footerWrapper}
             //   style={inView ? { opacity: "1" } : { opacity: "0" }}
