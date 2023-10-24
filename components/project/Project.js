@@ -69,8 +69,6 @@ const Project = ({
     !showProject && setTimeout(resetProject, 500);
   }, [showProject]);
 
-  console.log(project)
-
   return (
     <div
       className={`${styles.wrapper} ${
@@ -139,10 +137,18 @@ const Project = ({
           <div className={styles.image} key={i}>
             <Image
               fill
-              src={urlFor(image.url).format("webp").width(windowWidth).url()}
+              src={urlFor(image.asset.url)
+                .format("webp")
+                .width(windowWidth)
+                .url()}
               placeholder={"blur"}
-              blurDataURL={image.metadata.lqip}
-              style={{ objectFit: "cover" }}
+              blurDataURL={image.asset.metadata.lqip}
+              style={{
+                objectFit: "cover",
+                objectPosition: image.hotspot
+                  ? `${image.hotspot.x * 100}% ${image.hotspot.y * 100}%`
+                  : "center",
+              }}
               alt={image.alt ? image.alt : "An image by Knüppel & Scheffler"}
               priority={i <= 2 ? true : false}
               quality={3}

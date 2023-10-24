@@ -48,7 +48,6 @@ export default function ProjectSingle({ projects, imprint, privacy, slug }) {
   //   setProject(null);
   // };
 
-
   useEffect(() => {
     setHeight(ref2.current?.clientHeight);
   }, []);
@@ -56,8 +55,6 @@ export default function ProjectSingle({ projects, imprint, privacy, slug }) {
   // useEffect(() => {
   //   !showProject && setTimeout(resetProject, 500);
   // }, [showProject]);
-
-  console.log(urlFor(project?.images[2].url).format("webp").width(windowWidth))
 
   return (
     <>
@@ -81,7 +78,7 @@ export default function ProjectSingle({ projects, imprint, privacy, slug }) {
             style={!inView ? { opacity: "1" } : { opacity: "0" }}
           >
             <div className={styles.info}>
-              <h1 onClick={() => setCredits(!credits)}>{project.name}</h1>
+              <h1 onClick={() => setCredits(!credits)}>{project?.name}</h1>
               <div
                 className={styles.credits}
                 style={
@@ -98,9 +95,9 @@ export default function ProjectSingle({ projects, imprint, privacy, slug }) {
                     }}
                     onClick={() => setCredits(!credits)}
                   >
-                    {project.textEn && project.textDe ? (
+                    {project?.textEn && project?.textDe ? (
                       <PortableText
-                        content={lang == "en" ? project.textEn : project.textDe}
+                        content={lang == "en" ? project?.textEn : project?.textDe}
                       />
                     ) : (
                       ""
@@ -136,13 +133,21 @@ export default function ProjectSingle({ projects, imprint, privacy, slug }) {
             <div className={styles.image} key={i}>
               <Image
                 fill
-                src={urlFor(image.url).format("webp").width(1800).url()}
+                src={urlFor(image.asset.url)
+                  .format("webp")
+                  .width(1500)
+                  .url()}
                 placeholder={"blur"}
-                blurDataURL={image.metadata.lqip}
-                style={{ objectFit: "cover" }}
+                blurDataURL={image.asset.metadata.lqip}
+                style={{
+                  objectFit: "cover",
+                  objectPosition: image.hotspot
+                    ? `${image.hotspot.x * 100}% ${image.hotspot.y * 100}%`
+                    : "center",
+                }}
                 alt={image.alt ? image.alt : "An image by Knüppel & Scheffler"}
                 priority={i <= 2 ? true : false}
-                quality={10}
+                quality={3}
               />
             </div>
           ))}

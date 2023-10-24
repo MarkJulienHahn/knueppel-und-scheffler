@@ -43,7 +43,6 @@ const Main = ({
       : setLang("en");
   }, []);
 
-
   return (
     <>
       <Imprint

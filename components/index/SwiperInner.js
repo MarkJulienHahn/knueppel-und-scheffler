@@ -21,10 +21,15 @@ const SwiperInner = ({ entry }) => {
       <div className={styles.imgWrapper}>
         <Image
           fill
-          src={entry.image.url}
-          style={{ objectFit: "cover" }}
+          src={entry.image.asset.url}
+          style={{
+            objectFit: "cover",
+            objectPosition: entry.image.hotspot
+              ? `${entry.image.hotspot.x * 100}% ${entry.image.hotspot.y * 100}%`
+              : "center",
+          }}
           placeholder={"blur"}
-          blurDataURL={entry.image.metadata.lqip}
+          blurDataURL={entry.image.asset.metadata.lqip}
           loading={"eager"}
           alt={
             entry.image.alt
