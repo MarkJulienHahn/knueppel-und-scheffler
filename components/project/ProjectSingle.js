@@ -97,7 +97,9 @@ export default function ProjectSingle({ projects, imprint, privacy, slug }) {
                   >
                     {project?.textEn && project?.textDe ? (
                       <PortableText
-                        content={lang == "en" ? project?.textEn : project?.textDe}
+                        content={
+                          lang == "en" ? project?.textEn : project?.textDe
+                        }
                       />
                     ) : (
                       ""
@@ -135,7 +137,7 @@ export default function ProjectSingle({ projects, imprint, privacy, slug }) {
                 fill
                 src={urlFor(image.asset.url)
                   .format("webp")
-                  .width(1500)
+                  .width(windowWidth > 1000 ? windowWidth : windowWidth * 2)
                   .url()}
                 placeholder={"blur"}
                 blurDataURL={image.asset.metadata.lqip}
