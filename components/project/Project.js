@@ -139,7 +139,7 @@ const Project = ({
               fill
               src={urlFor(image.asset.url)
                 .format("webp")
-                .width(windowWidth > 1000 ? windowWidth : windowWidth * 2)
+                .width(windowWidth > 1000 ? windowWidth : 1000)
                 .url()}
               placeholder={"blur"}
               blurDataURL={image.asset.metadata.lqip}
