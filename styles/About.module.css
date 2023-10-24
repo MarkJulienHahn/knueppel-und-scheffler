@@ -79,6 +79,9 @@
 .jobsWrapper,
 .contactWrapper {
   margin-top: 200px;
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
 }
 
 .clientsWrapper h1 {
@@ -196,5 +199,8 @@
   .rightleft,
   .leftright {
     width: 30px;
+  }
+  .clientsWrapper h1 {
+    max-width: 100vw;
   }
 }
