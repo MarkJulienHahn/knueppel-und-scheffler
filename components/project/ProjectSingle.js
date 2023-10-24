@@ -137,7 +137,7 @@ export default function ProjectSingle({ projects, imprint, privacy, slug }) {
                 fill
                 src={urlFor(image.asset.url)
                   .format("webp")
-                  .width(windowWidth > 1000 ? windowWidth : windowWidth * 2.5)
+                  .width(1500)
                   .url()}
                 placeholder={"blur"}
                 blurDataURL={image.asset.metadata.lqip}
