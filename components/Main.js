@@ -43,8 +43,6 @@ const Main = ({
       : setLang("en");
   }, []);
 
-  console.log(navigator.language, navigator?.userLanguage)
-
   return (
     <>
       <Imprint
