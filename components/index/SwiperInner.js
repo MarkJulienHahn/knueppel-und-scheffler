@@ -19,14 +19,14 @@ const SwiperInner = ({ entry }) => {
         ></div>
       </div>
       <div className={styles.imgWrapper}>
-        {/* <Image
+        <Image
           fill
           src={entry.image.asset.url}
           style={{
             objectFit: "cover",
-            objectPosition: entry.image.hotspot
-              ? `${entry.image.hotspot.x * 100}% ${entry.image.hotspot.y * 100}%`
-              : "center",
+            // objectPosition: entry.image.hotspot
+            //   ? `${entry.image.hotspot.x * 100}% ${entry.image.hotspot.y * 100}%`
+            //   : "center",
           }}
           placeholder={"blur"}
           blurDataURL={entry.image.asset.metadata.lqip}
@@ -36,7 +36,7 @@ const SwiperInner = ({ entry }) => {
               ? entry.image.alt
               : "An image on the Website of Knüppel & Scheffler"
           }
-        /> */}
+        />
       </div>
     </>
   );
