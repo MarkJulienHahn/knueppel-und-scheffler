@@ -24,13 +24,13 @@ const SwiperInner = ({ entry }) => {
           src={entry.image.asset.url}
           style={{
             objectFit: "cover",
-            // objectPosition: entry.image.hotspot
-            //   ? `${entry.image.hotspot.x * 100}% ${entry.image.hotspot.y * 100}%`
-            //   : "center",
+            objectPosition: entry.image.hotspot
+              ? `${entry.image.hotspot.x * 100}% ${entry.image.hotspot.y * 100}%`
+              : "center",
           }}
           placeholder={"blur"}
           blurDataURL={entry.image.asset.metadata.lqip}
-          loading={"eager"}
+          // loading={"eager"}
           alt={
             entry.image.alt
               ? entry.image.alt
