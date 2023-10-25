@@ -21,12 +21,15 @@
 }
 
 .row {
+  /* background: red; */
+  width: 100vw;
+  left: 0;
   position: absolute;
   bottom: 40px;
   /* width: 100%; */
   display: flex;
-  justify-content: space-around;
-  margin: 0 var(--space-M);
+  justify-content: center;
+  /* margin: 0 var(--space-M); */
   cursor: default;
   pointer-events: auto
 }

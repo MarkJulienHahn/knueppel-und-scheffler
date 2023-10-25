@@ -73,6 +73,8 @@ const Footer = ({
     loaded && isVisible ? setShowNav(false) : setShowNav(true);
   }, [isVisible]);
 
+  console.log(loaded, isVisible)
+
   return (
     <div className={styles.wrapper} ref={bottomRef}>
       <div className={styles.logo} style={!showNav ? visible : invisible}>
