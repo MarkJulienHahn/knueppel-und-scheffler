@@ -17,32 +17,24 @@
   position: absolute;
   bottom: calc(50vh - 40px);
   transition: opacity 2s ease;
+  transition-delay: 1s;
   pointer-events: none;
 }
 
 .row {
-  /* background: red; */
   width: 100vw;
   left: 0;
   position: absolute;
   bottom: 40px;
-  /* width: 100%; */
   display: flex;
   justify-content: center;
-  /* margin: 0 var(--space-M); */
   cursor: default;
   pointer-events: auto
 }
 
-/* .row a:hover {
-  opacity: 0;
-  font-family: "ItalianGaramond";
-} */
-
 .item {
   margin: 0 10px;
   position: relative;
-  /* background: red; */
 }
 
 .item a {
@@ -62,7 +54,6 @@
   position: absolute;
   pointer-events: none;
   left: 4px;
-  /* background: blue; */
 }
 
 .item:hover span {
