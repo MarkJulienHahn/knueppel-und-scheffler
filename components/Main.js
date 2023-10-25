@@ -44,6 +44,10 @@ const Main = ({
       : setLang("en");
   }, []);
 
+  useEffect(() => {
+    !showProject && setShowNav(true)
+  }, [showProject])
+
   return (
     <>
       <Imprint

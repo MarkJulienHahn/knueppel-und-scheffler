@@ -22,12 +22,14 @@ const About = ({
   setShowPrivacy,
 }) => {
   const [title, setTitle] = useState(lang == "en" ? "About" : "Über Uns");
+  const [scrolling, setScrolling] = useState(0);
 
   return (
     <div
       className={`${styles.wrapper} ${
         showAbout ? styles.active : styles.inActive
       }`}
+      onScroll={() => setScrolling(scrolling + 1)}
     >
       <div className={styles.inner}>
         {showAbout && (
@@ -44,6 +46,7 @@ const About = ({
           scrollTarget={scrollTarget}
           showAbout={showAbout}
           contact={contact}
+          scrolling={scrolling}
         />
         <Footer
           lang={lang}

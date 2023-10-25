@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 
+import useWindowDimensions from "../../hooks/useWindowDimensions";
+
 import styles from "../../styles/Header.module.css";
 import logo from "../../public/images/ks_logo_neg.png";
 
@@ -13,17 +15,14 @@ import { Autoplay } from "swiper/modules";
 
 const Header = ({ header }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
-  const [opacity, setOpacity] = useState(1);
   const [showArrow, setShowArrow] = useState(false);
+
+  const { windowHeight } = useWindowDimensions();
 
   const handleScroll = () => {
     const position = window.pageYOffset;
     setScrollPosition(position);
   };
-
-  const { ref: ref, inView: visible } = useInView({
-    threshold: 0,
-  });
 
   const arrowFunction = () => {
     setShowArrow(true);
@@ -38,25 +37,22 @@ const Header = ({ header }) => {
   }, []);
 
   useEffect(() => {
-    scrollPosition <= 500 && setOpacity((300 - scrollPosition) / 100);
-  }, [scrollPosition]);
-
-  useEffect(() => {
-    !visible && scrollPosition > 100 && setOpacity(0);
-  }, [visible]);
-
-  useEffect(() => {
     scrollPosition >= 100 && setShowArrow(false);
   }, [scrollPosition]);
 
   useEffect(() => {
-    setTimeout(arrowFunction, 3000);
+    setTimeout(arrowFunction, 5000);
   }, []);
 
+  console.log(windowHeight/4, scrollPosition)
+
   return (
-    <div className={styles.wrapper} ref={ref}>
+    <div className={styles.wrapper}>
       <div className={styles.logoWrapper}>
-        <div className={styles.logo} style={{ opacity: opacity }}>
+        <div
+          className={styles.logo}
+          style={{ opacity: scrollPosition > (windowHeight / 4) ? "0" : "1" }}
+        >
           <Image
             fill
             src={logo}

@@ -41,7 +41,7 @@ const Footer = ({
   const ref5 = useRef();
 
   const { ref: bottomRef, inView: isVisible } = useInView({
-    threshold: 0.7,
+    threshold: 0.3,
   });
 
   const loadedFct = () => {
@@ -72,8 +72,6 @@ const Footer = ({
   useEffect(() => {
     loaded && isVisible ? setShowNav(false) : setShowNav(true);
   }, [isVisible]);
-
-  console.log(loaded, isVisible)
 
   return (
     <div className={styles.wrapper} ref={bottomRef}>

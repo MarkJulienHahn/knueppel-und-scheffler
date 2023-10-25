@@ -21,6 +21,7 @@ const InfoSection = ({
   setTitle,
   scrollTarget,
   showAbout,
+  scrolling,
 }) => {
   const images = [about.aboutImage, about.clientsImage, about.jobsImage];
 
@@ -39,6 +40,7 @@ const InfoSection = ({
   const jobsScrollRef = useRef();
   const aboutScrollRef = useRef();
   const contactScrollRef = useRef();
+  const imageRef = useRef();
 
   const handleClick = (i) => {
     setJobIndex(i), setShowJobs(true);
@@ -82,12 +84,14 @@ const InfoSection = ({
     setTitle(lang == "en" ? "About" : "Über Uns");
   }, [lang]);
 
-  console.log(contact);
-
   return (
-    <>
+    <div>
       <div ref={aboutScrollRef}>
-        <ImageElement index={0} setImageIndex={setImageIndex} />
+        <ImageElement
+          scrolling={scrolling}
+          index={0}
+          setImageIndex={setImageIndex}
+        />
       </div>
       <div ref={aboutRef}></div>
       <div
@@ -108,12 +112,14 @@ const InfoSection = ({
       </div>
       <div className={styles.infoWrapper}>
         <div className={styles.infoImage}>
-          <Image
-            fill
-            src={images[imageIndex]}
-            style={{ objectFit: "cover" }}
-            alt={"Studio view of the Knüppel & Scheffler Studio"}
-          />
+          <div style={{ position: "relative", width: "100%", height: "100%" }} ref={imageRef}>
+            <Image
+              fill
+              src={images[imageIndex]}
+              style={{ objectFit: "cover" }}
+              alt={"Studio view of the Knüppel & Scheffler Studio"}
+            />
+          </div>
         </div>
         <div>
           <div className={styles.infoText}>
@@ -124,11 +130,16 @@ const InfoSection = ({
 
           <div className={styles.clientsWrapper} ref={clientScrollRef}>
             <HeadlineElement
+              scrolling={scrolling}
               lang={lang}
               lable={["Clients", "Kunden"]}
               setTitle={setTitle}
             />
-            <ImageElement index={1} setImageIndex={setImageIndex} />
+            <ImageElement
+              scrolling={scrolling}
+              index={1}
+              setImageIndex={setImageIndex}
+            />
             {clients.map((client, i) => (
               <h1 key={i}>{client.client}</h1>
             ))}
@@ -137,11 +148,16 @@ const InfoSection = ({
           {jobs.length ? (
             <div className={styles.jobsWrapper} ref={jobsScrollRef}>
               <HeadlineElement
+                scrolling={scrolling}
                 lang={lang}
                 lable={["Jobs", "Jobs"]}
                 setTitle={setTitle}
               />
-              <ImageElement index={2} setImageIndex={setImageIndex} />
+              <ImageElement
+                scrolling={scrolling}
+                index={2}
+                setImageIndex={setImageIndex}
+              />
               {jobs.map((job, i) => (
                 <h1 onClick={() => handleClick(i)} key={i}>
                   {lang == "en" ? job.jobTitleEn : job.jobTitleDe}
@@ -153,6 +169,7 @@ const InfoSection = ({
           )}
           <div className={styles.contactWrapper} ref={contactScrollRef}>
             <HeadlineElement
+              scrolling={scrolling}
               lang={lang}
               lable={["Contact", "Kontakt"]}
               setTitle={setTitle}
@@ -182,7 +199,7 @@ const InfoSection = ({
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

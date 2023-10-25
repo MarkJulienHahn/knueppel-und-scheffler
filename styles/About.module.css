@@ -65,7 +65,7 @@
   height: 30vw;
   margin-right: var(--space-S);
   position: sticky;
-  top: 200px;
+  top: 300px;
 }
 
 .infoText {
@@ -73,6 +73,12 @@
   font-size: var(--font-size-M);
   line-height: var(--line-height-M);
   left: calc(50vw - 10px);
+}
+
+.infoText li {
+  margin-left: 50px;
+  padding-left: 30px;
+  list-style-type: "—"
 }
 
 .clientsWrapper,

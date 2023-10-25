@@ -35,7 +35,7 @@ export default defineType({
         {
           type: "block",
           styles: [{ title: "Normal", value: "normal" }],
-          lists: [],
+          lists: [{ title: "Bullet", value: "bullet" }],
           marks: {
             decorators: [{ title: "Emphasis", value: "em" }],
           },
@@ -50,7 +50,7 @@ export default defineType({
         {
           type: "block",
           styles: [{ title: "Normal", value: "normal" }],
-          lists: [],
+          lists: [{ title: "Bullet", value: "bullet" }],
           marks: {
             decorators: [{ title: "Emphasis", value: "em" }],
           },

@@ -66,6 +66,7 @@ const Project = ({
   }, [showProject]);
 
   useEffect(() => {
+    !showProject && setShowNav(true);
     !showProject && setTimeout(resetProject, 500);
   }, [showProject]);
 

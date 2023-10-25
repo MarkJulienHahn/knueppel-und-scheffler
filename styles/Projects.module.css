@@ -1,6 +1,6 @@
 .wrapper {
   width: 100vw;
-  padding: var(--space-M);
+  padding: var(--space-M) var(--space-M) 0 var(--space-M);
   display: flex;
   justify-content: flex-start;
   flex-wrap: wrap;
