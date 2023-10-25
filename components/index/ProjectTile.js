@@ -20,7 +20,7 @@ const ProjectTile = ({
       <div className={styles.image}>
         <Image
           fill
-          src={urlFor(project.image.url).format("webp").width(1000).quality(50).url()}
+          src={urlFor(project.image.url).width(1000).quality(50).url()}
           style={{ objectFit: "cover" }}
           placeholder={"blur"}
           blurDataURL={project.image.metadata.lqip}

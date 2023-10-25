@@ -138,7 +138,6 @@ const Project = ({
             <Image
               fill
               src={urlFor(image.asset.url)
-                .format("webp")
                 .width(windowWidth > 1000 ? windowWidth : 1000)
                 .url()}
               placeholder={"blur"}

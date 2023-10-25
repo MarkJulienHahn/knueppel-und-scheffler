@@ -57,7 +57,7 @@ const InfoSection = ({
   };
 
   useEffect(() => {
-    aboutVisible && setTitle("About");
+    aboutVisible && setTitle(lang == "en" ? "About" : "Über Uns");
   }, [aboutVisible]);
 
   useEffect(() => {
@@ -76,6 +76,10 @@ const InfoSection = ({
     showAbout && routerAboutAction();
     !showAbout && routerBackAction();
   }, [showAbout]);
+
+  useEffect(() => {
+    setTitle(lang == "en" ? "About" : "Über Uns");
+  }, [lang]);
 
   return (
     <>

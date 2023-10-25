@@ -136,7 +136,6 @@ export default function ProjectSingle({ projects, imprint, privacy, slug }) {
               <Image
                 fill
                 src={urlFor(image.asset.url)
-                  .format("webp")
                   .width(1500)
                   .url()}
                 placeholder={"blur"}

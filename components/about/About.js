@@ -18,9 +18,9 @@ const About = ({
   setShowNav,
   showNav,
   setShowImprint,
-  setShowPrivacy
+  setShowPrivacy,
 }) => {
-  const [title, setTitle] = useState("About");
+  const [title, setTitle] = useState(lang == "en" ? "About" : "Über Uns");
 
   return (
     <div
@@ -43,14 +43,14 @@ const About = ({
           scrollTarget={scrollTarget}
           showAbout={showAbout}
         />
-      <Footer
-        lang={lang}
-        setLang={setLang}
-        setShowImprint={setShowImprint}
-        setShowPrivacy={setShowPrivacy}
-        showNav={showNav}
-        setShowNav={setShowNav}
-      />
+        <Footer
+          lang={lang}
+          setLang={setLang}
+          setShowImprint={setShowImprint}
+          setShowPrivacy={setShowPrivacy}
+          showNav={showNav}
+          setShowNav={setShowNav}
+        />
       </div>
     </div>
   );

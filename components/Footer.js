@@ -30,6 +30,7 @@ const Footer = ({
   setShowPrivacy,
 }) => {
   const [offsets, setOffsets] = useState({});
+  const [loaded, setLoaded] = useState(false);
 
   const { windowWidth } = useWindowDimensions();
 
@@ -43,6 +44,10 @@ const Footer = ({
     threshold: 0.7,
   });
 
+  const loadedFct = () => {
+    setLoaded(true);
+  };
+
   useEffect(() => {
     setOffsets([
       ref.current?.offsetLeft,
@@ -51,6 +56,7 @@ const Footer = ({
       ref4.current?.offsetLeft,
       ref5.current?.offsetLeft,
     ]);
+    setTimeout(loadedFct, 1000);
   }, []);
 
   useEffect(() => {
@@ -64,13 +70,12 @@ const Footer = ({
   }, [windowWidth]);
 
   useEffect(() => {
-    isVisible ? setShowNav(false) : setShowNav(true);
+    loaded && isVisible ? setShowNav(false) : setShowNav(true);
   }, [isVisible]);
 
   return (
     <div className={styles.wrapper} ref={bottomRef}>
-      <div className={styles.logo} 
-      style={!showNav ? visible : invisible}      >
+      <div className={styles.logo} style={!showNav ? visible : invisible}>
         <Image
           fill
           src={white ? logoNeg : logo}
