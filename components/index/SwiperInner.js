@@ -19,7 +19,7 @@ const SwiperInner = ({ entry }) => {
         ></div>
       </div>
       <div className={styles.imgWrapper}>
-        <Image
+        {/* <Image
           fill
           src={entry.image.asset.url}
           style={{
@@ -36,7 +36,7 @@ const SwiperInner = ({ entry }) => {
               ? entry.image.alt
               : "An image on the Website of Knüppel & Scheffler"
           }
-        />
+        /> */}
       </div>
     </>
   );
