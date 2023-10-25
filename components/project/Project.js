@@ -28,6 +28,8 @@ const Project = ({
 }) => {
   const [credits, setCredits] = useState(false);
   const [height, setHeight] = useState();
+  const [loaded, setLoaded] = useState(false);
+
   const [project, setProject] = useState(projects[projIndex]);
 
   const { windowWidth, windowHeight } = useWindowDimensions();
@@ -69,6 +71,10 @@ const Project = ({
     !showProject && setShowNav(true);
     !showProject && setTimeout(resetProject, 500);
   }, [showProject]);
+
+  useEffect(() => {
+    window && setLoaded(true);
+  }, []);
 
   return (
     <div
@@ -134,7 +140,7 @@ const Project = ({
         )}
         <div ref={topRef}></div>
 
-        {window != undefined
+        {loaded
           ? project?.images.map((image, i) => (
               <div className={styles.image} key={i}>
                 <Image
