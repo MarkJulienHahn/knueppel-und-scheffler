@@ -11,7 +11,7 @@
 .inner {
   position: relative;
   background: var(--white);
-  min-height: 100vh
+  min-height: 100vh;
 }
 
 .active {
@@ -78,7 +78,7 @@
 .infoText li {
   margin-left: 50px;
   padding-left: 30px;
-  list-style-type: "—"
+  list-style-type: "—";
 }
 
 .clientsWrapper,
@@ -177,6 +177,11 @@
     line-height: 25px;
     position: relative;
     left: 0;
+  }
+  .infoText li {
+    margin-left: 25px;
+    padding-left: 20px;
+    list-style-type: "—";
   }
   .clientsWrapper,
   .jobsWrapper,

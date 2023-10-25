@@ -95,8 +95,8 @@ a:hover {
     --font-size-M: 28px;
     --line-height-M: 35px;
   
-    --font-size-L: 32px;
-    --line-height-L: 35px;
+    --font-size-L: 25px;
+    --line-height-L: 30px;
   }
   body {
     font-size: 15px;
