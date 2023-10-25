@@ -75,10 +75,10 @@ const InfoSection = ({
     !showAbout && setTimeout(resetScroll, 500);
   }, [showAbout, scrollTarget]);
 
-  useEffect(() => {
-    showAbout && routerAboutAction();
-    !showAbout && routerBackAction();
-  }, [showAbout]);
+  // useEffect(() => {
+  //   showAbout && routerAboutAction();
+  //   !showAbout && routerBackAction();
+  // }, [showAbout]);
 
   useEffect(() => {
     setTitle(lang == "en" ? "About" : "Über Uns");
