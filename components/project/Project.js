@@ -134,27 +134,31 @@ const Project = ({
         )}
         <div ref={topRef}></div>
 
-        {project?.images.map((image, i) => (
-          <div className={styles.image} key={i}>
-            <Image
-              fill
-              src={urlFor(image.asset.url)
-                .width(windowWidth > 1000 ? windowWidth : 1000)
-                .url()}
-              placeholder={"blur"}
-              blurDataURL={image.asset.metadata.lqip}
-              style={{
-                objectFit: "cover",
-                objectPosition: image.hotspot
-                  ? `${image.hotspot.x * 100}% ${image.hotspot.y * 100}%`
-                  : "center",
-              }}
-              alt={image.alt ? image.alt : "An image by Knüppel & Scheffler"}
-              priority={i <= 2 ? true : false}
-              quality={3}
-            />
-          </div>
-        ))}
+        {window
+          ? project?.images.map((image, i) => (
+              <div className={styles.image} key={i}>
+                <Image
+                  fill
+                  src={urlFor(image.asset.url)
+                    .width(windowWidth > 1000 ? windowWidth : 1000)
+                    .url()}
+                  placeholder={"blur"}
+                  blurDataURL={image.asset.metadata.lqip}
+                  style={{
+                    objectFit: "cover",
+                    objectPosition: image.hotspot
+                      ? `${image.hotspot.x * 100}% ${image.hotspot.y * 100}%`
+                      : "center",
+                  }}
+                  alt={
+                    image.alt ? image.alt : "An image by Knüppel & Scheffler"
+                  }
+                  priority={i <= 2 ? true : false}
+                  quality={3}
+                />
+              </div>
+            ))
+          : ""}
 
         <div
           className={styles.footerWrapper}

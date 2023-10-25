@@ -44,8 +44,6 @@ const Header = ({ header }) => {
     setTimeout(arrowFunction, 5000);
   }, []);
 
-  console.log(windowHeight/4, scrollPosition)
-
   return (
     <div className={styles.wrapper}>
       <div className={styles.logoWrapper}>
