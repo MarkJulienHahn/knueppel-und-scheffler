@@ -17,6 +17,7 @@ const InfoSection = ({
   about,
   clients,
   jobs,
+  contact,
   setTitle,
   scrollTarget,
   showAbout,
@@ -80,6 +81,8 @@ const InfoSection = ({
   useEffect(() => {
     setTitle(lang == "en" ? "About" : "Über Uns");
   }, [lang]);
+
+  console.log(contact);
 
   return (
     <>
@@ -154,35 +157,28 @@ const InfoSection = ({
               lable={["Contact", "Kontakt"]}
               setTitle={setTitle}
             />
+
+            <h1> {contact.street}</h1>
             <h1>
-              Dorotheenstraße 14
-              <br />
-              10117 Berlin
-              <br />
-              <br />
-              (+49) 30 308 77 44 – 200
-              <br />
-              <a href="mailto:office@knueppel-scheffler.com">
-                office@knueppel-scheffler.com
-              </a>
-              <br />
-              <br />
-              <a
-                href={"https://www.instagram.com/knueppelscheffler_/"}
-                target="blank"
-                rel="_noreferrer"
-              >
-                Instagram
-              </a>
-              <br />
-              <a
-                href={"https://www.linkedin.com/in/eike-knueppel-a9263979/"}
-                target="blank"
-                rel="_noreferrer"
-              >
-                LinkedIn
-              </a>
+              {contact.zip} {contact.city}
             </h1>
+            <br />
+            <br />
+            <h1>{contact.phone}</h1>
+            <h1>
+              <a href={`mailto:${contact.email}`}>{contact.email}</a>
+            </h1>
+            <br />
+            <br />
+            {contact.links.map((link, i) => (
+              <div key={i}>
+                <h1>
+                  <a href={link.link} target="blank" rel="_noreferrer">
+                    {link.title}
+                  </a>
+                </h1>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -12,6 +12,7 @@ const About = ({
   about,
   clients,
   jobs,
+  contact,
   setShowAbout,
   showAbout,
   scrollTarget,
@@ -42,6 +43,7 @@ const About = ({
           jobs={jobs}
           scrollTarget={scrollTarget}
           showAbout={showAbout}
+          contact={contact}
         />
         <Footer
           lang={lang}

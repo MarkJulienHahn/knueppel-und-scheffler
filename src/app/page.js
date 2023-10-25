@@ -4,6 +4,7 @@ import {
   getAbout,
   getClients,
   getJobs,
+  getContact,
   getImprint,
   getPrivacy
 } from "../../santiy/sanity-utils";
@@ -16,6 +17,7 @@ export default async function Page() {
   const about = await getAbout();
   const clients = await getClients();
   const jobs = await getJobs();
+  const contact = await getContact();
   const imprint = await getImprint();
   const privacy = await getPrivacy();
 
@@ -27,6 +29,7 @@ export default async function Page() {
         about={about[0]}
         clients={clients}
         jobs={jobs}
+        contact={contact[0]}
         imprint={imprint}
         privacy={privacy}
       />

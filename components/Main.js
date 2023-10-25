@@ -17,6 +17,7 @@ const Main = ({
   imprint,
   privacy,
   aboutPage,
+  contact
 }) => {
   const [lang, setLang] = useState("en");
 
@@ -81,6 +82,7 @@ const Main = ({
         showAbout={showAbout}
         setShowNav={setShowNav}
         showNav={showNav}
+        contact={contact}
       />
 
       <div>

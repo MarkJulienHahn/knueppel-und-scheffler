@@ -27,12 +27,12 @@ export const myStructure = (S, context) =>
         .id("about")
         .child(S.document().schemaType("about").documentId("about")),
 
-      orderableDocumentListDeskItem({
-        type: "clients",
-        title: "Clients",
-        S,
-        context,
-      }),
+      // orderableDocumentListDeskItem({
+      //   type: "clients",
+      //   title: "Clients",
+      //   S,
+      //   context,
+      // }),
       
       S.listItem()
         .title("Clients")
@@ -49,6 +49,11 @@ export const myStructure = (S, context) =>
         S,
         context,
       }),
+
+      S.listItem()
+      .title("Contact")
+      .id("contact")
+      .child(S.document().schemaType("contact").documentId("contact")),
 
       S.divider(),
 

@@ -5,6 +5,7 @@ import clients from "./clients";
 import jobs from "./jobs";
 import imprint from "./imprint";
 import privacy from "./privacy";
+import contact from "./contact";
 
 export const schemaTypes = [
   header,
@@ -14,4 +15,5 @@ export const schemaTypes = [
   jobs,
   imprint,
   privacy,
+  contact
 ];

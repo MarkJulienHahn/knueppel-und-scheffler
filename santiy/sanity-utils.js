@@ -49,6 +49,10 @@ export async function getJobs() {
   return client.fetch(groq`*[_type == "jobs"]|order(orderRank){...}`);
 }
 
+export async function getContact() {
+  return client.fetch(groq`*[_type == "contact"]{...}`);
+}
+
 export async function getImprint() {
   return client.fetch(groq`*[_type == "imprint"]{...}`);
 }
