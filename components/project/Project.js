@@ -134,7 +134,7 @@ const Project = ({
         )}
         <div ref={topRef}></div>
 
-        {window
+        {window != undefined
           ? project?.images.map((image, i) => (
               <div className={styles.image} key={i}>
                 <Image
