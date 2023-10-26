@@ -11,21 +11,30 @@ export default defineType({
       title: "About Image",
       type: "image",
       options: { hotspot: true },
-      fields: [{ name: "alt", title: "Alt", type: "string" }],
+      fields: [
+        { name: "alt", title: "Alt", type: "string" },
+        { name: "credit", title: "Credit", type: "string" },
+      ],
     },
     {
       name: "clientsImage",
       title: "Clients Image",
       type: "image",
       options: { hotspot: true },
-      fields: [{ name: "alt", title: "Alt", type: "string" }],
+      fields: [
+        { name: "alt", title: "Alt", type: "string" },
+        { name: "credit", title: "Credit", type: "string" },
+      ],
     },
     {
       name: "jobsImage",
       title: "Jobs Image",
       type: "image",
       options: { hotspot: true },
-      fields: [{ name: "alt", title: "Alt", type: "string" }],
+      fields: [
+        { name: "alt", title: "Alt", type: "string" },
+        { name: "credit", title: "Credit", type: "string" },
+      ],
     },
     {
       name: "textEn",

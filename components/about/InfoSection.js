@@ -115,35 +115,38 @@ const InfoSection = ({
             <div
               style={{ position: "relative", width: "100%", height: "100%" }}
             >
+              <div className={styles.imageCredit}>
+                © {images[imageIndex]?.credit}
+              </div>
               <Image
                 fill
-                src={images[0]}
+                src={images[0].url.url}
                 style={{
                   position: "absolute",
                   objectFit: "cover",
                   opacity: imageIndex == 0 ? "1" : "0",
                 }}
-                alt={"Studio view of the Knüppel & Scheffler Studio"}
+                alt={images[0].alt ? images[0].alt : "Knueppel & Scheffler"}
               />
               <Image
                 fill
-                src={images[1]}
+                src={images[1].url.url}
                 style={{
                   position: "absolute",
                   objectFit: "cover",
                   opacity: imageIndex == 1 ? "1" : "0",
                 }}
-                alt={"Studio view of the Knüppel & Scheffler Studio"}
+                alt={images[2].alt ? images[1].alt : "Knueppel & Scheffler"}
               />
               <Image
                 fill
-                src={images[2]}
+                src={images[2].url.url}
                 style={{
                   position: "absolute",
                   objectFit: "cover",
                   opacity: imageIndex == 2 ? "1" : "0",
                 }}
-                alt={"Studio view of the Knüppel & Scheffler Studio"}
+                alt={images[2].alt ? images[2].alt : "Knueppel & Scheffler"}
               />
             </div>
           </div>

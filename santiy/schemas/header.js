@@ -11,7 +11,10 @@ export default defineType({
       title: "Image",
       type: "image",
       options: { hotspot: true },
-      fields: [{ name: "alt", title: "Alt", type: "string" }],
+      fields: [
+        { name: "alt", title: "Alt", type: "string" },
+        { name: "credit", title: "Credit", type: "string" },
+      ],
     },
     orderRankField({ type: "header" }),
   ],

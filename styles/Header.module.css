@@ -65,6 +65,19 @@
   position: relative;
 }
 
+.imageCredit {
+  z-index: 2000;
+  color: white;
+  position: absolute;
+  bottom: 5px;
+  left: 10px;
+  font-size: 8px;
+  letter-spacing: 0.8px;
+  opacity: 0.8;
+  filter: drop-shadow(3px 3px 3px black);
+  font-family: sans-serif;
+}
+
 .swiperControls {
   position: absolute;
   width: 100vw;

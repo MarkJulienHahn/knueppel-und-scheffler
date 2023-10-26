@@ -44,12 +44,14 @@ const Header = ({ header }) => {
     setTimeout(arrowFunction, 5000);
   }, []);
 
+  console.log(header);
+
   return (
     <div className={styles.wrapper}>
       <div className={styles.logoWrapper}>
         <div
           className={styles.logo}
-          style={{ opacity: scrollPosition > (windowHeight / 4) ? "0" : "1" }}
+          style={{ opacity: scrollPosition > windowHeight / 4 ? "0" : "1" }}
         >
           <Image
             fill
@@ -77,6 +79,11 @@ const Header = ({ header }) => {
       >
         {header.map((entry, i) => (
           <SwiperSlide key={i}>
+            {entry.image.credit ? (
+              <div className={styles.imageCredit}>© {entry?.image.credit}</div>
+            ) : (
+              ""
+            )}
             <SwiperInner entry={entry} />
           </SwiperSlide>
         ))}

@@ -76,8 +76,6 @@ const Project = ({
     window && setLoaded(true);
   }, []);
 
-  console.log(project);
-
   return (
     <div
       className={`${styles.wrapper} ${

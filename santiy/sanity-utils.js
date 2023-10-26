@@ -10,7 +10,7 @@ export default client;
 
 export async function getHeader() {
   return client.fetch(
-    groq`*[_type == "header"]|order(orderRank){"image": image{crop, hotspot, "asset": asset->{...}}}`
+    groq`*[_type == "header"]|order(orderRank){"image": image{crop, hotspot, credit, "asset": asset->{...}}}`
   );
 }
 
@@ -31,11 +31,9 @@ export async function getProjects() {
 export async function getAbout() {
   return client.fetch(
     groq`*[_type == "about"]{
-      "aboutImage": aboutImage.asset->url,
-      "clientsImage": clientsImage.asset->url,
-      "jobsImage": jobsImage.asset->url,
-      textEn, textDe,
-  }`
+      "aboutImage": aboutImage{alt, credit, "url": asset->{url}},
+      "clientsImage": clientsImage{alt, credit, "url": asset->{url}},
+      "jobsImage": jobsImage{alt, credit, "url": asset->{url}}, textDe, textEn}`
   );
 }
 
