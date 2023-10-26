@@ -25,10 +25,8 @@ export default defineType({
           styles: [{ title: "Normal", value: "normal" }],
           lists: [],
           marks: {
-            decorators: [
-              {title: 'Emphasis', value: 'em'},
-            ]
-          }
+            decorators: [{ title: "Emphasis", value: "em" }],
+          },
         },
       ],
     },
@@ -42,10 +40,8 @@ export default defineType({
           styles: [{ title: "Normal", value: "normal" }],
           lists: [],
           marks: {
-            decorators: [
-              {title: 'Emphasis', value: 'em'},
-            ]
-          }
+            decorators: [{ title: "Emphasis", value: "em" }],
+          },
         },
       ],
     },
@@ -59,7 +55,10 @@ export default defineType({
           title: "Image",
           type: "image",
           options: { hotspot: true },
-          fields: [{ name: "alt", title: "Alt", type: "string" }],
+          fields: [
+            { name: "alt", title: "Alt", type: "string" },
+            { name: "credit", title: "Credit", type: "string" },
+          ],
         },
       ],
     },

@@ -23,7 +23,7 @@ export async function getProjects() {
       "slug": slug.current,
       "image": image.asset->{...},
       textEn, textDe,
-        "images": images[]{crop, hotspot, "asset": asset->{...}}
+        "images": images[]{crop, hotspot, alt, credit, "asset": asset->{...}}
   }`
   );
 }

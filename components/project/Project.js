@@ -76,6 +76,8 @@ const Project = ({
     window && setLoaded(true);
   }, []);
 
+  console.log(project);
+
   return (
     <div
       className={`${styles.wrapper} ${
@@ -143,6 +145,11 @@ const Project = ({
         {loaded
           ? project?.images.map((image, i) => (
               <div className={styles.image} key={i}>
+                {image.credit ? (
+                  <div className={styles.imageCredit}>©{image.credit}</div>
+                ) : (
+                  ""
+                )}
                 <Image
                   fill
                   src={urlFor(image.asset.url)
