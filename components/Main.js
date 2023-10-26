@@ -17,7 +17,7 @@ const Main = ({
   imprint,
   privacy,
   aboutPage,
-  contact
+  contact,
 }) => {
   const [lang, setLang] = useState("en");
 
@@ -38,6 +38,8 @@ const Main = ({
   //   aboutPage && setShowAbout(true);
   // }, []);
 
+  const openNav = () => setShowNav(true);
+
   useEffect(() => {
     navigator.language.includes("de") || navigator.userLanguage?.includes("de")
       ? setLang("de")
@@ -45,8 +47,8 @@ const Main = ({
   }, []);
 
   useEffect(() => {
-    !showProject && setShowNav(true)
-  }, [showProject])
+    !showProject && setTimeout(openNav, 550);
+  }, [showProject]);
 
   return (
     <>
