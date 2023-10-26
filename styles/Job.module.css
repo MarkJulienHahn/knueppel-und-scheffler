@@ -25,6 +25,12 @@
   padding-top: 30px;
 }
 
+.text div li {
+  margin-left: 18px;
+  padding-left: 25px;
+  list-style-type: "—";
+}
+
 .link {
   cursor: pointer;
   margin: 100px;
@@ -37,5 +43,10 @@
     font-size: 22px;
     line-height: 25px;
     width: 100vw;
+  }
+  .text div li {
+    margin-left: 25px;
+    padding-left: 15px;
+    list-style-type: "—";
   }
 }
