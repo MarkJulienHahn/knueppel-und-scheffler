@@ -10,7 +10,7 @@ const ImageElement = ({ setImageIndex, index, scrolling }) => {
   }, [scrolling]);
 
   useEffect(() => {
-    pos?.y <= 200 && pos.y >= 0 && setImageIndex(index);
+    pos?.y <= 600 && pos.y >= 0 && setImageIndex(index);
   }, [pos]);
 
   return (

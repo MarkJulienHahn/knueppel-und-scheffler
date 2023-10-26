@@ -4,13 +4,15 @@ import Headline from "./Headline";
 
 const Job = ({ lang, jobs, jobIndex, showJobs, setShowJobs }) => {
   const job = jobs[jobIndex];
+
   return (
     <>
       {showJobs && <Headline close={() => setShowJobs(false)} />}
       <div className={styles.wrapper}>
         <p>Open Positions</p>
         <h1 className={styles.header}>
-          {lang == "en" ? job.jobTitleEn : job.jobTitleDe}
+          {lang == "en" ? job.jobTitleEn : job.jobTitleDe}{" "}
+          {job?.mfd ? "(m/f/d)" : ""}
         </h1>
         <div className={styles.text}>
           <PortableText content={lang == "en" ? job.textEn : job.textDe} />

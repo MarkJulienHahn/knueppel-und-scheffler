@@ -10,7 +10,7 @@ const HeadlineElement = ({ lang, lable, setTitle, scrolling }) => {
   }, [scrolling]);
 
   useEffect(() => {
-    pos?.y <= 200 && pos.y >= 0 && setTitle(lang == "en" ? lable[0] : lable[1]);
+    pos?.y <= 600 && pos.y >= 0 && setTitle(lang == "en" ? lable[0] : lable[1]);
   }, [pos]);
 
   return (

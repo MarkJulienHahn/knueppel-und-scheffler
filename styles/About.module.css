@@ -58,14 +58,25 @@
   /* flex-wrap: wrap; */
   padding: 300px var(--space-M);
   position: relative;
+  padding-left: 50vw;
 }
 
 .infoImage {
   width: 40vw;
   height: 30vw;
   margin-right: var(--space-S);
-  position: sticky;
+  position: fixed;
   top: 300px;
+  left: 5vw;
+  pointer-events: none;
+  animation: fadeIn 0.5s ease;
+  animation-delay: 0.5s;
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.infoImage div img {
+  transition: opacity 0.5s ease;
 }
 
 .infoText {
@@ -73,6 +84,7 @@
   font-size: var(--font-size-M);
   line-height: var(--line-height-M);
   left: calc(50vw - 10px);
+  transform: translateY(-8px);
 }
 
 .infoText li {
@@ -166,6 +178,7 @@
     height: 66vw;
     position: relative;
     top: unset;
+    left: 0;
   }
   .infoImage img {
     object-fit: cover !important;

@@ -16,6 +16,7 @@ export default defineType({
       title: "Job Title German",
       type: "string",
     },
+    { name: "mfd", title: "(m/f/d)", type: "boolean" },
     {
       name: "textEn",
       title: "Text English",

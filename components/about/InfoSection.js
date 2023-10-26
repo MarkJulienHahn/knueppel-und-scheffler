@@ -40,7 +40,6 @@ const InfoSection = ({
   const jobsScrollRef = useRef();
   const aboutScrollRef = useRef();
   const contactScrollRef = useRef();
-  const imageRef = useRef();
 
   const handleClick = (i) => {
     setJobIndex(i), setShowJobs(true);
@@ -111,16 +110,44 @@ const InfoSection = ({
         </div>
       </div>
       <div className={styles.infoWrapper}>
-        <div className={styles.infoImage}>
-          <div style={{ position: "relative", width: "100%", height: "100%" }} ref={imageRef}>
-            <Image
-              fill
-              src={images[imageIndex]}
-              style={{ objectFit: "cover" }}
-              alt={"Studio view of the Knüppel & Scheffler Studio"}
-            />
+        {showAbout && (
+          <div className={styles.infoImage}>
+            <div
+              style={{ position: "relative", width: "100%", height: "100%" }}
+            >
+              <Image
+                fill
+                src={images[0]}
+                style={{
+                  position: "absolute",
+                  objectFit: "cover",
+                  opacity: imageIndex == 0 ? "1" : "0",
+                }}
+                alt={"Studio view of the Knüppel & Scheffler Studio"}
+              />
+              <Image
+                fill
+                src={images[1]}
+                style={{
+                  position: "absolute",
+                  objectFit: "cover",
+                  opacity: imageIndex == 1 ? "1" : "0",
+                }}
+                alt={"Studio view of the Knüppel & Scheffler Studio"}
+              />
+              <Image
+                fill
+                src={images[2]}
+                style={{
+                  position: "absolute",
+                  objectFit: "cover",
+                  opacity: imageIndex == 2 ? "1" : "0",
+                }}
+                alt={"Studio view of the Knüppel & Scheffler Studio"}
+              />
+            </div>
           </div>
-        </div>
+        )}
         <div>
           <div className={styles.infoText}>
             <PortableText
@@ -199,6 +226,11 @@ const InfoSection = ({
           </div>
         </div>
       </div>
+      <ImageElement
+        scrolling={scrolling}
+        index={null}
+        setImageIndex={setImageIndex}
+      />
     </div>
   );
 };
