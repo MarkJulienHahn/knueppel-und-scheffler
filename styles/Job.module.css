@@ -36,7 +36,7 @@
   margin: 100px;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
   .text {
     column-count: 1;
     padding-top: 40px;
