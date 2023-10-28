@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-import { useInView } from "react-intersection-observer";
 import Image from "next/image";
 
 import useWindowDimensions from "../../hooks/useWindowDimensions";
@@ -43,8 +42,6 @@ const Header = ({ header }) => {
   useEffect(() => {
     setTimeout(arrowFunction, 5000);
   }, []);
-
-  console.log(header);
 
   return (
     <div className={styles.wrapper}>

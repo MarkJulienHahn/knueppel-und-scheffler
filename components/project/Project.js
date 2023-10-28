@@ -1,18 +1,13 @@
 import { useState, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
-import { useRouter } from "next/navigation";
-
-import useWindowDimensions from "../../hooks/useWindowDimensions";
 
 import PortableText from "react-portable-text";
-import Image from "next/image";
-
-import { urlFor } from "../../hooks/useImageUrlBuilder";
 
 import styles from "../../styles/Project.module.css";
 
 import Headline from "../about/Headline";
 import Footer from "../Footer";
+import ProjectImage from "./ProjectImage";
 
 const Project = ({
   lang,
@@ -31,8 +26,6 @@ const Project = ({
   const [loaded, setLoaded] = useState(false);
 
   const [project, setProject] = useState(projects[projIndex]);
-
-  const { windowWidth, windowHeight } = useWindowDimensions();
 
   const ref2 = useRef();
   const topRef = useRef();
@@ -148,25 +141,7 @@ const Project = ({
                 ) : (
                   ""
                 )}
-                <Image
-                  fill
-                  src={urlFor(image.asset.url)
-                    .width(windowWidth > 1000 ? windowWidth : 1000)
-                    .url()}
-                  placeholder={"blur"}
-                  blurDataURL={image.asset.metadata.lqip}
-                  style={{
-                    objectFit: "cover",
-                    objectPosition: image.hotspot
-                      ? `${image.hotspot.x * 100}% ${image.hotspot.y * 100}%`
-                      : "center",
-                  }}
-                  alt={
-                    image.alt ? image.alt : "An image by Knüppel & Scheffler"
-                  }
-                  priority={i <= 2 ? true : false}
-                  quality={3}
-                />
+                <ProjectImage image={image} i={i} />
               </div>
             ))
           : ""}

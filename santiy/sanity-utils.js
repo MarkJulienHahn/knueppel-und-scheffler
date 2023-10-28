@@ -21,7 +21,7 @@ export async function getProjects() {
       _createdAt,
       name,
       "slug": slug.current,
-      "image": image.asset->{...},
+      "image": image{crop, hotspot, alt, credit, "asset": asset->{...}},
       textEn, textDe,
         "images": images[]{crop, hotspot, alt, credit, "asset": asset->{...}}
   }`

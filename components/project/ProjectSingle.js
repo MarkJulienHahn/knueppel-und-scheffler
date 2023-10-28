@@ -4,17 +4,11 @@ import { useState, useEffect, useRef } from "react";
 import { useInView } from "react-intersection-observer";
 import { useRouter } from "next/navigation";
 
-import useWindowDimensions from "../../hooks/useWindowDimensions";
-
 import PortableText from "react-portable-text";
-import Image from "next/image";
-import Link from "next/link";
-
-import { urlFor } from "../../hooks/useImageUrlBuilder";
+import ProjectImage from "./ProjectImage";
 
 import styles from "../../styles/Project.module.css";
 
-import Headline from "../about/Headline";
 import Footer from "../Footer";
 import Imprint from "../imprint/Imprint";
 
@@ -27,7 +21,6 @@ export default function ProjectSingle({ projects, imprint, privacy, slug }) {
   const [showNav, setShowNav] = useState(false);
   const [lang, setLang] = useState("en");
 
-  const { windowWidth, windowHeight } = useWindowDimensions();
 
   const router = useRouter();
 
@@ -44,17 +37,9 @@ export default function ProjectSingle({ projects, imprint, privacy, slug }) {
     threshold: 0.8,
   });
 
-  // const resetProject = () => {
-  //   setProject(null);
-  // };
-
   useEffect(() => {
     setHeight(ref2.current?.clientHeight);
   }, []);
-
-  // useEffect(() => {
-  //   !showProject && setTimeout(resetProject, 500);
-  // }, [showProject]);
 
   return (
     <>
@@ -133,23 +118,7 @@ export default function ProjectSingle({ projects, imprint, privacy, slug }) {
 
           {project?.images.map((image, i) => (
             <div className={styles.image} key={i}>
-              <Image
-                fill
-                src={urlFor(image.asset.url)
-                  .width(1500)
-                  .url()}
-                placeholder={"blur"}
-                blurDataURL={image.asset.metadata.lqip}
-                style={{
-                  objectFit: "cover",
-                  objectPosition: image.hotspot
-                    ? `${image.hotspot.x * 100}% ${image.hotspot.y * 100}%`
-                    : "center",
-                }}
-                alt={image.alt ? image.alt : "An image by Knüppel & Scheffler"}
-                priority={i <= 2 ? true : false}
-                quality={3}
-              />
+              <ProjectImage image={image} i={i} />
             </div>
           ))}
 
