@@ -31,10 +31,12 @@ const SwiperInner = ({ entry }) => {
       // gather into a url
       return urlFor(entry.image.asset.url)
         .rect(left, top, croppedWidth, croppedHeight)
+        .quality(50)
         .url();
     } else
       return urlFor(entry.image.asset.url)
         .width(windowWidth > 1000 ? windowWidth : 1000)
+        .quality(50)
         .url();
   };
 
@@ -69,7 +71,7 @@ const SwiperInner = ({ entry }) => {
             }}
             placeholder={"blur"}
             blurDataURL={entry.image.asset.metadata.lqip}
-            // loading={"eager"}
+
             alt={
               entry.image.alt
                 ? entry.image.alt

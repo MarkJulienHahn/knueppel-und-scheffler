@@ -12,8 +12,6 @@ const ProjectImage = ({ image, i }) => {
   const width = image.asset.metadata.dimensions.width;
   const height = image.asset.metadata.dimensions.height;
 
-  console.log(image.crop)
-
   const getUrl = () => {
     if (crop) {
       // compute the cropped image's area
@@ -28,10 +26,12 @@ const ProjectImage = ({ image, i }) => {
       // gather into a url
       return urlFor(image.asset.url)
         .rect(left, top, croppedWidth, croppedHeight)
+        .quality(50)
         .url();
     } else
       return urlFor(image.asset.url)
         .width(windowWidth > 1000 ? windowWidth : 1000)
+        .quality(50)
         .url();
   };
 
@@ -39,7 +39,6 @@ const ProjectImage = ({ image, i }) => {
     setUrl(getUrl());
   }, []);
 
-  console.log(url);
 
   return (
     url && (
