@@ -39,7 +39,7 @@ export async function getAbout() {
 
 export async function getClients() {
   return client.fetch(
-    groq`*[_type == "clients"]| order(lower(client) asc){...}`
+    groq`*[_type == "kunden"]| order(lower(client) asc){...}`
   );
 }
 

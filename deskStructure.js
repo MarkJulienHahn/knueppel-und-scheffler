@@ -27,21 +27,13 @@ export const myStructure = (S, context) =>
         .id("about")
         .child(S.document().schemaType("about").documentId("about")),
 
-      // orderableDocumentListDeskItem({
-      //   type: "clients",
-      //   title: "Clients",
-      //   S,
-      //   context,
-      // }),
-      
-      S.listItem()
-        .title("Clients")
-        .schemaType("clients")
-        .child(
-          S.documentList()
-            .title("Clients")
-            .filter('_type == "clients"')
-        ),
+
+      S.listItem().title("Clients").child(
+        S.documentTypeList("kunden")
+          .title("Clients")
+          .apiVersion('v2023-11-02')
+          .filter('_type == "kunden"') 
+      ),
 
       orderableDocumentListDeskItem({
         type: "jobs",
@@ -51,9 +43,9 @@ export const myStructure = (S, context) =>
       }),
 
       S.listItem()
-      .title("Contact")
-      .id("contact")
-      .child(S.document().schemaType("contact").documentId("contact")),
+        .title("Contact")
+        .id("contact")
+        .child(S.document().schemaType("contact").documentId("contact")),
 
       S.divider(),
 
