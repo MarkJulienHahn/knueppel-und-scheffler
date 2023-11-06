@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import styles from "../../styles/About.module.css";
 
@@ -22,14 +22,28 @@ const About = ({
   setShowPrivacy,
 }) => {
   const [title, setTitle] = useState(lang == "en" ? "About" : "Über Uns");
-  const [scrolling, setScrolling] = useState(0);
+  // const [scrolling, setScrolling] = useState(0);
+
+  // const handleScroll = () => {
+  //   const position = window.pageYOffset;
+  //   setScrolling(position);
+  // };
+
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll, { passive: true });
+
+  //   return () => {
+  //     window.removeEventListener("scroll", handleScroll);
+  //   };
+  // }, []);
+
+  // console.log("here", scrolling);
 
   return (
     <div
       className={`${styles.wrapper} ${
         showAbout ? styles.active : styles.inActive
       }`}
-      onScroll={() => setScrolling(scrolling + 1)}
     >
       <div className={styles.inner}>
         {showAbout && (
@@ -46,7 +60,7 @@ const About = ({
           scrollTarget={scrollTarget}
           showAbout={showAbout}
           contact={contact}
-          scrolling={scrolling}
+          // scrolling={scrolling}
         />
         <Footer
           lang={lang}

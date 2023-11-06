@@ -12,9 +12,10 @@ import "swiper/css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 
-const Header = ({ header }) => {
+const Header = ({ header, showAbout }) => {
   const [scrollPosition, setScrollPosition] = useState(0);
   const [showArrow, setShowArrow] = useState(false);
+  const [hideHeader, setHideHeader] = useState(false);
 
   const { windowHeight } = useWindowDimensions();
 
@@ -35,6 +36,10 @@ const Header = ({ header }) => {
     };
   }, []);
 
+  const noHeader = () => {
+    setHideHeader(true);
+  };
+
   useEffect(() => {
     scrollPosition >= 100 && setShowArrow(false);
   }, [scrollPosition]);
@@ -42,6 +47,11 @@ const Header = ({ header }) => {
   useEffect(() => {
     setTimeout(arrowFunction, 5000);
   }, []);
+
+  useEffect(() => {
+    showAbout && setTimeout(noHeader, 500);
+    !showAbout && setHideHeader(false);
+  }, [showAbout]);
 
   return (
     <div className={styles.wrapper}>
@@ -65,26 +75,29 @@ const Header = ({ header }) => {
       >
         <div className={styles.arrow}>↓</div>
       </div>
-
-      <Swiper
-        loop={true}
-        autoplay={{
-          delay: 4000,
-        }}
-        modules={[Autoplay]}
-        speed={1000}
-      >
-        {header.map((entry, i) => (
-          <SwiperSlide key={i}>
-            {entry.image.credit ? (
-              <div className={styles.imageCredit}>© {entry?.image.credit}</div>
-            ) : (
-              ""
-            )}
-            <SwiperInner entry={entry} />
-          </SwiperSlide>
-        ))}
-      </Swiper>
+      {!hideHeader && (
+        <Swiper
+          loop={true}
+          autoplay={{
+            delay: 4000,
+          }}
+          modules={[Autoplay]}
+          speed={1000}
+        >
+          {header.map((entry, i) => (
+            <SwiperSlide key={i}>
+              {entry.image.credit ? (
+                <div className={styles.imageCredit}>
+                  © {entry?.image.credit}
+                </div>
+              ) : (
+                ""
+              )}
+              <SwiperInner entry={entry} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      )}
     </div>
   );
 };

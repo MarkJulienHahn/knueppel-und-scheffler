@@ -92,7 +92,7 @@ const Main = ({
       />
 
       <div>
-        <Header header={header} />
+        <Header header={header} showAbout={showAbout} />
 
         <Body
           setScrollTarget={setScrollTarget}
