@@ -12,7 +12,7 @@ import {
 import Main from "../../../components/Main";
 
 export const metadata = {
-  title: "KUEPPEL & SCHEFFLER",
+  title: "KNUEPPEL & SCHEFFLER",
   description:
     "Full-service event agency for event management, event organization, event coordination, guest management, guest relations, guest services, and invitation management in Berlin.",
 };
