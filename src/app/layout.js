@@ -1,9 +1,9 @@
 import "./globals.css";
 
 export const metadata = {
-  title: "KUEPPEL & SCHEFFLER",
+  title: "KNUEPPEL & SCHEFFLER",
   description:
-    "Full-service event agency for event management, event organization, event coordination, guest management, guest relations, guest services, and invitation management in Berlin.",
+    "Knueppel & Scheffler ist die Fullservice-Agentur für besondere Events, Award Shows und Markeninszenierungen.",
 };
 
 export default function RootLayout({ children }) {
