@@ -58,3 +58,7 @@ export async function getImprint() {
 export async function getPrivacy() {
   return client.fetch(groq`*[_type == "privacy"]{...}`);
 }
+
+export async function getDeleted() {
+  return client.fetch(groq`*[_type == "projects" && slug.current == "bunte-new-faces-awards-film-2024"]{_id}`)
+}

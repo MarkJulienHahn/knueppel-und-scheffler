@@ -1,0 +1,17 @@
+{
+    "root": true,
+    "project": {
+      "name": "Knueppel & Scheffler"
+    },
+    "api": {
+      "projectId": "saau1ctb",
+      "dataset": "production"
+    },
+    "plugins": [
+      "@sanity/base",
+      "@sanity/components",
+      "@sanity/default-layout",
+      "@sanity/default-login",
+      "@sanity/desk-tool"
+    ]
+  }

@@ -6,7 +6,8 @@ import {
   getJobs,
   getContact,
   getImprint,
-  getPrivacy
+  getPrivacy,
+  getDeleted,
 } from "../../santiy/sanity-utils";
 
 import Main from "../../components/Main";
@@ -20,6 +21,7 @@ export default async function Page() {
   const contact = await getContact();
   const imprint = await getImprint();
   const privacy = await getPrivacy();
+  const deleted = await getDeleted();
 
   return (
     <div>
