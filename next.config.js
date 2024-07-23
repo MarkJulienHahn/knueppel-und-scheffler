@@ -5,10 +5,7 @@ const nextConfig = {
     domains: ["cdn.sanity.io"],
     unoptimized: true,
   },
-  // i18n: {
-  //   locales: ['de', 'en'],
-  //   defaultLocale: 'de',
-  // },
+  output: 'export',
 };
 
 module.exports = nextConfig;
