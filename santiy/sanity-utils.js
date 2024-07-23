@@ -77,4 +77,3 @@ export async function getDeleted() {
   const query = groq`*[_type == "projects" && slug.current == "bunte-new-faces-awards-film-2024"]{_id}`;
   return fetchWithCache("deleted", query);
 }
-

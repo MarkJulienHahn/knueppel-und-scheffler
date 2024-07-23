@@ -15,6 +15,7 @@
     "next": "^13.4.19",
     "next-intl": "^2.20.2",
     "next-sanity": "^5.5.4",
+    "node-cache": "^5.1.2",
     "react": "latest",
     "react-dom": "latest",
     "react-icons": "^4.11.0",
