@@ -1,9 +1,5 @@
 import {
-  getHeader,
   getProjects,
-  getAbout,
-  getClients,
-  getJobs,
   getImprint,
   getPrivacy,
 } from "../../../santiy/sanity-utils";
@@ -31,3 +27,5 @@ export default async function Page({ params }) {
     </div>
   );
 }
+
+export const revalidate = 60;
